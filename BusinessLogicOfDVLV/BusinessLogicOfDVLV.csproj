@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}</ProjectGuid>
+    <ProjectGuid>{D676B33B-E76D-416B-B2B0-EF3AD724A4E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DVLD</RootNamespace>
-    <AssemblyName>DataAccessOfDVLD</AssemblyName>
+    <RootNamespace>BusinessLogicOfDVLV</RootNamespace>
+    <AssemblyName>BusinessLogicOfDVLV</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,9 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsPeopleData.cs" />
-    <Compile Include="clsSettingsData.cs" />
+    <Compile Include="clsPerson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data access layer of DVLD\DataAccessOfDVLD.csproj">
+      <Project>{ba3eab64-b096-44e9-95da-cedadeab2bf8}</Project>
+      <Name>DataAccessOfDVLD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,9 @@
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\bin\Debug\BusinessLogicOfDVLV.dll
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\bin\Debug\BusinessLogicOfDVLV.pdb
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\bin\Debug\DataAccessOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\bin\Debug\DataAccessOfDVLD.pdb
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\obj\Debug\BusinessLogicOfDVLV.csproj.AssemblyReference.cache
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\obj\Debug\BusinessLogicOfDVLV.csproj.CoreCompileInputs.cache
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\obj\Debug\Business.98AB5D59.Up2Date
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\obj\Debug\BusinessLogicOfDVLV.dll
+C:\Users\AIO\source\repos\DVLD Solution\BusinessLogicOfDVLV\obj\Debug\BusinessLogicOfDVLV.pdb
