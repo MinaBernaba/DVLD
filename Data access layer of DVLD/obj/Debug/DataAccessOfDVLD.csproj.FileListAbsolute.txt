@@ -1,0 +1,12 @@
+C:\Users\AIO\source\repos\Data access layer of DVLD\bin\Debug\DVLD.dll
+C:\Users\AIO\source\repos\Data access layer of DVLD\bin\Debug\DVLD.pdb
+C:\Users\AIO\source\repos\Data access layer of DVLD\obj\Debug\DataAccessOfDVLD.csproj.AssemblyReference.cache
+C:\Users\AIO\source\repos\Data access layer of DVLD\obj\Debug\DataAccessOfDVLD.csproj.CoreCompileInputs.cache
+C:\Users\AIO\source\repos\Data access layer of DVLD\obj\Debug\DVLD.dll
+C:\Users\AIO\source\repos\Data access layer of DVLD\obj\Debug\DVLD.pdb
+C:\Users\AIO\source\repos\DVLD Solution\Data access layer of DVLD\bin\Debug\DataAccessOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD Solution\Data access layer of DVLD\bin\Debug\DataAccessOfDVLD.pdb
+C:\Users\AIO\source\repos\DVLD Solution\Data access layer of DVLD\obj\Debug\DataAccessOfDVLD.csproj.AssemblyReference.cache
+C:\Users\AIO\source\repos\DVLD Solution\Data access layer of DVLD\obj\Debug\DataAccessOfDVLD.csproj.CoreCompileInputs.cache
+C:\Users\AIO\source\repos\DVLD Solution\Data access layer of DVLD\obj\Debug\DataAccessOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD Solution\Data access layer of DVLD\obj\Debug\DataAccessOfDVLD.pdb

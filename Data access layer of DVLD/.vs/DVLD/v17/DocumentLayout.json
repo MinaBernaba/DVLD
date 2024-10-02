@@ -1,0 +1,63 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}|DataAccessOfDVLD.csproj|c:\\users\\aio\\source\\repos\\dvld solution\\data access layer of dvld\\clspeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}|DataAccessOfDVLD.csproj|solutionrelative:clspeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}|DVLD.csproj|C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}|DVLD.csproj|solutionrelative:clssettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsPeople.cs",
+              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clsPeople.cs",
+              "RelativeDocumentMoniker": "clsPeople.cs",
+              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clsPeople.cs",
+              "RelativeToolTip": "clsPeople.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T07:37:50.908Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "clsSettings.cs",
+              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clsSettings.cs",
+              "RelativeDocumentMoniker": "clsSettings.cs",
+              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clsSettings.cs",
+              "RelativeToolTip": "clsSettings.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T07:35:20.689Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

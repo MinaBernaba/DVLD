@@ -1,0 +1,6 @@
+C:\Users\AIO\source\repos\DVLD\bin\Debug\DVLD.dll
+C:\Users\AIO\source\repos\DVLD\bin\Debug\DVLD.pdb
+C:\Users\AIO\source\repos\DVLD\obj\Debug\DVLD.csproj.AssemblyReference.cache
+C:\Users\AIO\source\repos\DVLD\obj\Debug\DVLD.csproj.CoreCompileInputs.cache
+C:\Users\AIO\source\repos\DVLD\obj\Debug\DVLD.dll
+C:\Users\AIO\source\repos\DVLD\obj\Debug\DVLD.pdb
