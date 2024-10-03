@@ -15,15 +15,17 @@ namespace DVLD
 {
     public partial class frmListPeople : Form
     {
+        private DataTable _dataTable = new DataTable();
         public frmListPeople()
         {
             InitializeComponent();
+            _dataTable = clsPerson.GetAllPeople();
         }
 
         private void ManagePeople_Load(object sender, EventArgs e)
         {
-            DataTable dataTable = clsPerson.GetAllPeople();
-            DataTable dt = dataTable.DefaultView.ToTable(false,"PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
+         
+            DataTable dt = _dataTable.DefaultView.ToTable(false,"PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
             "DateOfBirth", "Gender", "Phone", "Email", "Nationality");
             dgvShowPeopleInSystem.DataSource = dt;
           

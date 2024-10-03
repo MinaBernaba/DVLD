@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|solutionrelative:frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|c:\\users\\aio\\source\\repos\\dvld solution\\dvld\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|solutionrelative:frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
@@ -11,10 +15,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}|..\\Data access layer of DVLD\\DataAccessOfDVLD.csproj|c:\\users\\aio\\source\\repos\\dvld solution\\data access layer of dvld\\clspeopledata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|c:\\users\\aio\\source\\repos\\dvld solution\\dvld\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|solutionrelative:frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,20 +32,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmListPeople.cs",
-              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
-              "RelativeDocumentMoniker": "frmListPeople.cs",
-              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
-              "RelativeToolTip": "frmListPeople.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAWwBsAAAAyAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-02T09:45:10.708Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmListPeople.cs [Design]",
               "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
               "RelativeDocumentMoniker": "frmListPeople.cs",
@@ -57,26 +44,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "frmListPeople.cs",
+              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
+              "RelativeDocumentMoniker": "frmListPeople.cs",
+              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
+              "RelativeToolTip": "frmListPeople.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAWwBIAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-02T09:45:10.708Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "clsPerson.cs",
               "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\BusinessLogicOfDVLV\\clsPerson.cs",
               "RelativeDocumentMoniker": "..\\BusinessLogicOfDVLV\\clsPerson.cs",
               "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\BusinessLogicOfDVLV\\clsPerson.cs",
               "RelativeToolTip": "..\\BusinessLogicOfDVLV\\clsPerson.cs",
-              "ViewState": "AQIAADMAAAAAAAAAAAAAAEYAAABbAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-02T09:23:04.718Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "clsPeopleData.cs",
               "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clsPeopleData.cs",
               "RelativeDocumentMoniker": "..\\Data access layer of DVLD\\clsPeopleData.cs",
               "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\Data access layer of DVLD\\clsPeopleData.cs",
               "RelativeToolTip": "..\\Data access layer of DVLD\\clsPeopleData.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAAAEYAAACGAAAA",
+              "ViewState": "AQIAAMMAAAAAAAAAAAAAAMwAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-02T09:23:39.612Z",
               "EditorCaption": ""
