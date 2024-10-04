@@ -23,7 +23,7 @@ namespace BusinessLogicOfDVLV
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public string Nationality { get; set; }
+        public byte CountryID { get; set; }
         public string ImagePath { get; set; }
         public clsPerson()
         {
@@ -38,12 +38,12 @@ namespace BusinessLogicOfDVLV
             Address = string.Empty;
             Phone = string.Empty;
             Email = string.Empty;
-            Nationality = "";
+            CountryID = 0;
             ImagePath = string.Empty;
             Mode = enMode.AddNew;
         }
         private clsPerson(int PersonID, string NationalNo, string FirstName, string SecondName, string ThirdName, string LastName,
-            DateTime DateOfBirth, sbyte Gender, string Address, string Phone, string Email, string Nationality, string ImagePath)
+            DateTime DateOfBirth, sbyte Gender, string Address, string Phone, string Email, byte CountryID, string ImagePath)
         {
             this.PersonID = PersonID;
             this.NationalNo = NationalNo;
@@ -56,38 +56,40 @@ namespace BusinessLogicOfDVLV
             this.Address = Address;
             this.Phone = Phone;
             this.Email = Email;
-            this.Nationality = Nationality;
+            this.CountryID = CountryID;
             this.ImagePath = ImagePath;
             this.Mode = enMode.Update;
         }
         public static clsPerson Find(int PersonID)
         {
             string NationalNo = "", FirstName = "", SecondName = "", ThirdName = "", LastName = "",
-           Address = "", Phone = "", Email = "", ImagePath = "", Nationality= "";
+           Address = "", Phone = "", Email = "", ImagePath = "";
             DateTime DateOfBirth = DateTime.MinValue;
             sbyte Gender = -1 ;
+            byte CountryID = 0;
 
             if (clsPeopleData.Find(PersonID, ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
-               ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref Nationality, ref ImagePath))
+               ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref CountryID, ref ImagePath))
             {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
-                DateOfBirth, Gender, Address, Phone, Email, Nationality, ImagePath);
+                DateOfBirth, Gender, Address, Phone, Email, CountryID, ImagePath);
             }
             else return null;
         }
         public static clsPerson Find(string NationalNo)
         {
             string FirstName = "", SecondName = "", ThirdName = "", LastName = "",
-           Address = "", Phone = "", Email = "", ImagePath = "", Nationality = "";
+           Address = "", Phone = "", Email = "", ImagePath = "";
             DateTime DateOfBirth = DateTime.MinValue;
             int PersonID = -1;
             sbyte Gender = -1;
+            byte CountryID = 0;
 
             if (clsPeopleData.Find(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
-               ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref Nationality, ref ImagePath))
+               ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref CountryID, ref ImagePath))
             {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,
-                DateOfBirth, Gender, Address, Phone, Email, Nationality, ImagePath);
+                DateOfBirth, Gender, Address, Phone, Email, CountryID, ImagePath);
             }
             else return null;
         }
@@ -106,14 +108,14 @@ namespace BusinessLogicOfDVLV
         private bool _AddNewPerson()
         {
             this.PersonID = clsPeopleData.AddNewPerson(this.NationalNo, this.FirstName, this.SecondName,
-                this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email, this.Nationality, this.ImagePath);
-            return (this.PersonID == -1);
+                this.ThirdName, this.LastName, this.DateOfBirth, this.Gender, this.Address, this.Phone, this.Email, this.CountryID, this.ImagePath);
+            return (this.PersonID != -1);
         }
         private bool _UpdatePerson()
         {
-            return (clsPeopleData.UpdatePerson(this.NationalNo, this.FirstName, this.SecondName,
+            return (clsPeopleData.UpdatePerson(this.PersonID,this.NationalNo, this.FirstName, this.SecondName,
                   this.ThirdName, this.LastName, this.DateOfBirth, this.Gender,
-                  this.Address, this.Phone, this.Email, this.Nationality, this.ImagePath));
+                  this.Address, this.Phone, this.Email, this.CountryID, this.ImagePath));
         }
         public bool Save()
         {
@@ -121,13 +123,15 @@ namespace BusinessLogicOfDVLV
             {
                 case enMode.AddNew:
                     {
-                        if (_AddNewPerson()) 
+                        if (_AddNewPerson())
+                        {
+                            Mode = enMode.Update;
                             return true;
+                        }
                         else return false;
                     }
                     case enMode.Update: {
-                        if (_UpdatePerson()) return true;
-                        else return false;
+                        return _UpdatePerson();
                     }
             }
             return false;

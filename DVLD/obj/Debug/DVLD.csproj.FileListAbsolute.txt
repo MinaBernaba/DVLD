@@ -13,3 +13,4 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.exe
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.pdb
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmListPeople.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmAddUpdatePerson.resources
