@@ -1,20 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|solutionrelative:frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|solutionrelative:frmlistpeople.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|c:\\users\\aio\\source\\repos\\dvld solution\\dvld\\frmaddupdateperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{2C1D58A2-4E44-4968-9DDF-7EC619D5D699}|DVLD.csproj|solutionrelative:frmaddupdateperson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -22,48 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmAddUpdatePerson.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmAddUpdatePerson.cs",
-              "RelativeDocumentMoniker": "frmAddUpdatePerson.cs",
-              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmAddUpdatePerson.cs [Design]",
-              "RelativeToolTip": "frmAddUpdatePerson.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-04T17:47:36.215Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmListPeople.cs",
-              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
-              "RelativeDocumentMoniker": "frmListPeople.cs",
-              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
-              "RelativeToolTip": "frmListPeople.cs",
-              "ViewState": "AQIAACsAAAAAAAAAAAAewE4AAAAZAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:40:39.006Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmListPeople.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs",
-              "RelativeDocumentMoniker": "frmListPeople.cs",
-              "ToolTip": "C:\\Users\\AIO\\source\\repos\\DVLD Solution\\DVLD\\frmListPeople.cs [Design]",
-              "RelativeToolTip": "frmListPeople.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-03T15:38:25.132Z",
-              "EditorCaption": " [Design]"
             }
           ]
         }

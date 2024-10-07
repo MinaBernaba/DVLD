@@ -26,9 +26,9 @@ namespace DataAccessDVLD
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
 
             string Query = "select People.PersonID , People.NationalNo , People.FirstName ," +
-                "\r\nPeople.SecondName , People.ThirdName , People.LastName ,People.DateOfBirth," +
-                "\r\nPeople.Gender ,People.Email , People.Address , People.Phone , " +
-                "People.NationalityCountryID ,\r\nPeople.ImagePath \r\n" +
+                "People.SecondName , People.ThirdName , People.LastName ,People.DateOfBirth," +
+                "People.Gender ,People.Email , People.Address , People.Phone , " +
+                "People.NationalityCountryID ,People.ImagePath " +
                 "from People where" +
                 " People.PersonID = @PersonID;";
 
@@ -52,7 +52,7 @@ namespace DataAccessDVLD
                     Gender = (sbyte)(byte)reader["Gender"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
-                    Email = reader["Email"] != DBNull.Value ? Email = (string)reader["Email"] : ""; // System.DBNull.Value
+                    Email = reader["Email"] != DBNull.Value ? Email = (string)reader["Email"] : "";
                     NationalityCountryID = (byte)(int)reader["NationalityCountryID"];
                     ImagePath = reader["ImagePath"] != DBNull.Value ? ImagePath = (string)reader["ImagePath"] : "";
                 }
@@ -262,7 +262,7 @@ namespace DataAccessDVLD
         {
             int AffectedRows = 0;
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "delete from People \r\nwhere PersonID = @PersonID";
+            string Query = "delete from People where PersonID = @PersonID";
             SqlCommand cmd = new SqlCommand(Query, conn);
             cmd.Parameters.AddWithValue("@PersonID" , PersonID);
             try {
@@ -272,6 +272,23 @@ namespace DataAccessDVLD
             catch(Exception ex) { }
             finally { conn.Close(); }
             return AffectedRows > 0;
+        }
+        public static bool IsNationalNoExist(string NationalNo)
+        {
+            bool isFound = false;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string query = "select Found = 1 from people where NationalNo = @NationalNo ";
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.Parameters.AddWithValue("@NationalNo", NationalNo);
+            try
+            {
+                conn.Open();
+                object reader = cmd.ExecuteScalar();
+                if (reader != null) isFound = true;
+            }
+            catch(Exception ex) { }
+            finally { conn.Close(); }
+            return isFound;
         }
     }
 } 

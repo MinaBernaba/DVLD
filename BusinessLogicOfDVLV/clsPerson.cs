@@ -99,7 +99,9 @@ namespace BusinessLogicOfDVLV
         }
         public static bool IsExist(string NationalNo)
         {
+            
             return clsPeopleData.IsExist(NationalNo);
+            string TempNationalNo = NationalNo;
         }
         public static DataTable GetAllPeople()
         {
@@ -140,6 +142,10 @@ namespace BusinessLogicOfDVLV
         public static bool DeletePerson(int PersonID)
         {
             return clsPeopleData.DeletePerson(PersonID);
+        }
+        public static bool IsNationalNoExist(string NationalNo)
+        {
+            return clsPeopleData.IsNationalNoExist(NationalNo);
         }
     }
 }
