@@ -15,8 +15,8 @@ namespace DVLD
 {
     public partial class frmListPeople : Form
     {
-        private DataTable _dataTable = new DataTable();
-        DataView _dataView = new DataView();
+        //private DataTable _People = new DataTable();
+        DataView _PeopleDV = new DataView();
         public frmListPeople()
         {
             InitializeComponent();
@@ -25,21 +25,36 @@ namespace DVLD
         private void _RefreshDataGridView()
         {
             txtFilter.Clear();
-            _dataTable = clsPerson.GetAllPeople().DefaultView.ToTable(false, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
-           "DateOfBirth", "Gender", "Phone", "Email", "Nationality");
-            _dataView = _dataTable.DefaultView;
-            dgvListPeople.DataSource = _dataView;
+            DataTable _People = clsPerson.GetAllPeople().DefaultView.ToTable(false, "PersonID", "NationalNo", "FirstName", "SecondName", "ThirdName", "LastName",
+           "Gender", "DateOfBirth", "Nationality", "Phone", "Email");
+            _PeopleDV = _People.DefaultView;
+            dgvListPeople.DataSource = _PeopleDV;
             lblNumberOfRecords.Text = dgvListPeople.RowCount.ToString();
+            
         }
         private void ManagePeople_Load(object sender, EventArgs e)
         {
             cbFilter.SelectedIndex = 0;
             _RefreshDataGridView();
+            if (dgvListPeople.Rows.Count > 0)
+            {
+                dgvListPeople.Columns[0].HeaderText = "Person ID";
+                dgvListPeople.Columns[1].HeaderText = "National No.";
+                dgvListPeople.Columns[2].HeaderText = "First Name";
+                dgvListPeople.Columns[3].HeaderText = "Second Name";
+                dgvListPeople.Columns[4].HeaderText = "Third Name";
+                dgvListPeople.Columns[5].HeaderText = "Last Name";
+                dgvListPeople.Columns[6].HeaderText = "Gender";
+                dgvListPeople.Columns[7].HeaderText = "Date of birth";
+                dgvListPeople.Columns[8].HeaderText = "Nationality";
+                dgvListPeople.Columns[9].HeaderText = "Phone";
+                dgvListPeople.Columns[10].HeaderText = "Email";
+            }
         }
 
         private void AddNew(object sender, EventArgs e)
         {
-            frmAddUpdatePerson frm = new frmAddUpdatePerson(-1);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
             frm.ShowDialog();
             _RefreshDataGridView();
         }
@@ -84,81 +99,89 @@ namespace DVLD
 
         private void cbFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbFilter.SelectedItem.ToString() != "None")
+            txtFilter.Visible = (cbFilter.Text != "None");
+            if (txtFilter.Visible)
             {
-                txtFilter.Visible = true;
-            }
-            else
-            {
-                _RefreshDataGridView();
-                txtFilter.Visible = false;
+                txtFilter.Text = "";
+                txtFilter.Focus();
             }
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
         {
-            switch (cbFilter.SelectedItem.ToString())
+            string RowFilter = "";
+            switch (cbFilter.Text)
             {
                 case "None":
                     {
+                        RowFilter = "None";
                         break;
                     }
-                case "PersonID":
+                case "Person ID":
                     {
-                        _dataView.RowFilter = $"PersonID = '{Convert.ToInt32(txtFilter.Text)}%'";
+                        RowFilter = "PersonID";
                         break;
                     }
                 case "National No.":
                     {
-                        _dataView.RowFilter = $"NationalNo like '{txtFilter.Text}%'";
+                        RowFilter = "NationalNo";
                         break;
                     }
                 case "First Name":
                     {
-                        _dataView.RowFilter = $"FirstName like '{txtFilter.Text}%'";
+                        RowFilter = "FirstName";
                         break;
                     }
                 case "Second Name":
                     {
-                        _dataView.RowFilter = $"SecondName like '{txtFilter.Text}%'";
+                        RowFilter = "SecondName";
                         break;
                     }
                 case "Third Name":
                     {
-                        _dataView.RowFilter = $"ThirdName like '{txtFilter.Text}%'";
+                        RowFilter = "ThirdName";
                         break;
                     }
                 case "Last Name":
                     {
-                        _dataView.RowFilter = $"LastName like '{txtFilter.Text}%'";
+                        RowFilter = "LastName";
                         break;
                     }
                 case "Nationality":
                     {
-                        _dataView.RowFilter = $"Nationality like '{txtFilter.Text}%'";
+                        RowFilter = "Nationality";
                         break;
                     }
                 case "Gender":
                     {
-                        _dataView.RowFilter = $"Gender like '{txtFilter.Text}%'";
+                        RowFilter = "Gender";
                         break;
                     }
                 case "Phone":
                     {
-                        _dataView.RowFilter = $"Phone like '{txtFilter.Text}%'";
+                        RowFilter = "Phone";
                         break;
                     }
                 case "Email":
                     {
-                        _dataView.RowFilter = $"Email like '{txtFilter.Text}%'";
+                        RowFilter = "Email";
                         break;
                     }
                 default:
                     {
-                        MessageBox.Show("Error!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        RowFilter = "None";
                         break;
                     }
             }
+            if (txtFilter.Text == "" || RowFilter == "None")
+            {
+                _PeopleDV.RowFilter = "";
+                lblNumberOfRecords.Text = dgvListPeople.Rows.Count.ToString();
+                return;
+            }
+            if (RowFilter == "PersonID")
+            _PeopleDV.RowFilter = string.Format(" {0} = {1}", RowFilter , txtFilter.Text.Trim());
+            else _PeopleDV.RowFilter = string.Format(" {0} LIKE '{1}%'", RowFilter, txtFilter.Text.Trim());
             lblNumberOfRecords.Text = dgvListPeople.RowCount.ToString();
         }
 
@@ -166,6 +189,12 @@ namespace DVLD
         {
             frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvListPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+        }
+
+        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(cbFilter.Text == "Person ID")
+            e.Handled = (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar));
         }
     }
 }

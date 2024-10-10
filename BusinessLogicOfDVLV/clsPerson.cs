@@ -24,6 +24,8 @@ namespace BusinessLogicOfDVLV
         public string Phone { get; set; }
         public string Email { get; set; }
         public byte CountryID { get; set; }
+
+        public clsCountry Country;
         public string ImagePath { get; set; }
         public clsPerson()
         {
@@ -57,6 +59,7 @@ namespace BusinessLogicOfDVLV
             this.Phone = Phone;
             this.Email = Email;
             this.CountryID = CountryID;
+            this.Country = clsCountry.FindCountryByID(CountryID);
             this.ImagePath = ImagePath;
             this.Mode = enMode.Update;
         }
@@ -99,9 +102,7 @@ namespace BusinessLogicOfDVLV
         }
         public static bool IsExist(string NationalNo)
         {
-            
             return clsPeopleData.IsExist(NationalNo);
-            string TempNationalNo = NationalNo;
         }
         public static DataTable GetAllPeople()
         {
@@ -145,7 +146,7 @@ namespace BusinessLogicOfDVLV
         }
         public static bool IsNationalNoExist(string NationalNo)
         {
-            return clsPeopleData.IsNationalNoExist(NationalNo);
+            return clsPeopleData.IsExist(NationalNo);
         }
     }
 }

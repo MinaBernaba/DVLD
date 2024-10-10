@@ -74,9 +74,10 @@
             // lnkEditPerson
             // 
             this.lnkEditPerson.AutoSize = true;
-            this.lnkEditPerson.Location = new System.Drawing.Point(654, 30);
+            this.lnkEditPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnkEditPerson.Location = new System.Drawing.Point(638, 30);
             this.lnkEditPerson.Name = "lnkEditPerson";
-            this.lnkEditPerson.Size = new System.Drawing.Size(183, 29);
+            this.lnkEditPerson.Size = new System.Drawing.Size(199, 29);
             this.lnkEditPerson.TabIndex = 73;
             this.lnkEditPerson.TabStop = true;
             this.lnkEditPerson.Text = "Edit Person Info";
@@ -84,8 +85,9 @@
             // 
             // PicBoxPerson
             // 
+            this.PicBoxPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PicBoxPerson.Image = global::DVLD.Properties.Resources.Male_512;
-            this.PicBoxPerson.Location = new System.Drawing.Point(673, 71);
+            this.PicBoxPerson.Location = new System.Drawing.Point(662, 71);
             this.PicBoxPerson.Name = "PicBoxPerson";
             this.PicBoxPerson.Size = new System.Drawing.Size(150, 160);
             this.PicBoxPerson.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -243,7 +245,7 @@
             this.groupBox1.Controls.Add(this.label);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(839, 317);

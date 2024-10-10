@@ -273,22 +273,5 @@ namespace DataAccessDVLD
             finally { conn.Close(); }
             return AffectedRows > 0;
         }
-        public static bool IsNationalNoExist(string NationalNo)
-        {
-            bool isFound = false;
-            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string query = "select Found = 1 from people where NationalNo = @NationalNo ";
-            SqlCommand cmd = new SqlCommand(query, conn);
-            cmd.Parameters.AddWithValue("@NationalNo", NationalNo);
-            try
-            {
-                conn.Open();
-                object reader = cmd.ExecuteScalar();
-                if (reader != null) isFound = true;
-            }
-            catch(Exception ex) { }
-            finally { conn.Close(); }
-            return isFound;
-        }
     }
 } 

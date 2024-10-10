@@ -16,3 +16,6 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmListPeople.resour
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmAddUpdatePerson.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmShowPersonInfo.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.ctrlPersonCard.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmFindPerson.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmMain.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.ctrlPersonCardWithFilter.resources

@@ -10,9 +10,9 @@ namespace DataAccessDVLD
 {
     public class clsCountryData
     {
-        public static string GetCountryName(int CounteyID)
+        public static bool FindCountryByID(byte CounteyID, ref string CountryName)
         {
-            string CountryName = "";
+            bool isFound = false;
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
             string Query = "Select CountryName from Countries where CountryID = @CountryID ";
             SqlCommand cmd = new SqlCommand(Query, conn);
@@ -20,35 +20,37 @@ namespace DataAccessDVLD
             try
             {
                 conn.Open();
-                object reader = cmd.ExecuteScalar();
-                if (reader != null)
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    CountryName = reader.ToString();
+                    isFound = true;
+                    CountryName = (string)reader["CountryName"];
                 }
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
-            return CountryName;
+            return isFound;
         }
-        public static byte GetCountryID(string CountryName)
+        public static bool FindCountryByName(string CountryName, ref byte CounteyID)
         {
-            byte CountryID = 0;
+            bool isFound = false;
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "Select CountryID from Countries where CountryName = @CountryName ";
+            string Query = "Select * from Countries where CountryName = @CountryName ";
             SqlCommand cmd = new SqlCommand(Query, conn);
             cmd.Parameters.AddWithValue("@CountryName", CountryName);
             try
             {
                 conn.Open();
-                object reader = cmd.ExecuteScalar();
-                if (reader != null)
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read()) 
                 {
-                   byte.TryParse(reader.ToString(), out CountryID);
+                    isFound = true;
+                    CounteyID = (byte)(int)reader["CountryID"];
                 }
             }
             catch (Exception ex) { }
             finally { conn.Close(); }
-            return CountryID;
+            return isFound;
         }
         public static DataTable GetAllCountries()
         {

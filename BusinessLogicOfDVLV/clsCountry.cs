@@ -10,13 +10,34 @@ namespace BusinessLogicOfDVLV
 {
     public class clsCountry
     {
-        public static string CountryName(int CountryID)
-        {
-            return clsCountryData.GetCountryName(CountryID);
+        public byte CountryID { get; set; }
+        public string CountryName { get; set; }
+        public clsCountry() {
+            this.CountryID = 0;
+            this.CountryName = "";
         }
-        public static byte CountryID(string CountryName)
+        private clsCountry(byte CountryID,string CountryName)
         {
-            return clsCountryData.GetCountryID(CountryName);
+            this.CountryID = CountryID;
+            this.CountryName = CountryName;
+        }
+        public static clsCountry FindCountryByID(byte CountryID)
+        {
+            string CountryName = "";
+            if (clsCountryData.FindCountryByID(CountryID, ref CountryName))
+            {
+                return new clsCountry(CountryID, CountryName);
+            }
+            else return null;
+        }
+        public static clsCountry FindCountryByName(string CountryName)
+        {
+            byte CountryID = 0;
+            if (clsCountryData.FindCountryByName(CountryName, ref CountryID))
+            {
+                return new clsCountry(CountryID, CountryName);
+            }
+            else return null;
         }
         public static DataTable GetAllCountries()
         {

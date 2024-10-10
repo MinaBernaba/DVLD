@@ -9,25 +9,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using DVLD.classes;
 
 namespace DVLD
 {
     public partial class frmAddUpdatePerson : Form
     {
+        public delegate void DataBackEventHandler(object sender, int PersonID);
+        public event DataBackEventHandler DataBack;
+        
         enum enMode { AddNew, Update }
         private enMode _Mode = enMode.AddNew;
         enum enGender { Male, Female }
-        enGender _Gender = enGender.Male;
-        private clsPerson _Person = new clsPerson();
+        private clsPerson _Person;
+        private int _PersonID = -1;
+        public frmAddUpdatePerson()
+        {
+            InitializeComponent();
+            _Mode = enMode.AddNew;
+        }
         public frmAddUpdatePerson(int PersonID)
         {
             InitializeComponent();
-            if (PersonID == -1) _Mode = enMode.AddNew;
-            else
-            {
-                _Mode = enMode.Update;
-                _Person = clsPerson.Find(PersonID);
-            }
+            _Mode = enMode.Update;
+            _PersonID = PersonID;
         }
         private void frmAddUpdatePerson_Load(object sender, EventArgs e)
         {
@@ -37,17 +43,27 @@ namespace DVLD
         {
             _FillingComboBoxOfCountries();
             DTDateOfBirth.MaxDate = DateTime.Now.AddYears(-18);
+            DTDateOfBirth.MinDate = DateTime.Now.AddYears(-100);
             switch (_Mode)
             {
                 case enMode.AddNew:
                     {
+                        this.Text = "Add New Person";
                         lblTitle.Text = "Add New Person";
                         cbCountries.SelectedIndex = cbCountries.FindString("Egypt");
+                        _Person = new clsPerson();
                         return;
                     }
                 case enMode.Update:
                     {
-
+                        _Person = clsPerson.Find(_PersonID);
+                        if (_Person == null)
+                        {
+                            MessageBox.Show("No Person with ID = " + _PersonID, "Person Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            this.Close();
+                            return;
+                        }
+                        this.Text = "Edit Person";
                         lblTitle.Text = "Edit Person";
                         lblShowingID.Text = _Person.PersonID.ToString();
                         txtFirstName.Text = _Person.FirstName;
@@ -56,20 +72,51 @@ namespace DVLD
                         txtLastName.Text = _Person.LastName;
                         txtNationalNo.Text = _Person.NationalNo;
                         DTDateOfBirth.Value = _Person.DateOfBirth;
+
                         if (_Person.Gender == 0) rbMale.Checked = true;
                         else rbFemale.Checked = true;
+
                         txtPhone.Text = _Person.Phone;
                         txtEmail.Text = _Person.Email;
                         txtAddress.Text = _Person.Address;
-                        cbCountries.SelectedIndex = cbCountries.FindString(clsCountry.CountryName(_Person.CountryID));
+                        cbCountries.SelectedIndex = cbCountries.FindString(_Person.Country.CountryName);
                         if (_Person.ImagePath != "")
                         {
-                            PicBoxM_F.Load(_Person.ImagePath);
+                            PicBoxM_F.ImageLocation = _Person.ImagePath;
                             lnkRemoveImage.Visible = true;
                         }
                         return;
                     }
             }
+        }
+        private bool _HandleImage()
+        {
+            if (_Person.ImagePath != PicBoxM_F.ImageLocation)
+            {
+                if (_Person.ImagePath != "")
+                {
+                    try
+                    {
+                        File.Delete(_Person.ImagePath);
+                    }
+                    catch (IOException) { }
+                }
+                if (PicBoxM_F.ImageLocation != null)
+                {
+                    string SourceImageFile = PicBoxM_F.ImageLocation.ToString();
+                    if (clsUtil.CopyImageToProjectFolderImages(ref SourceImageFile))
+                    {
+                        PicBoxM_F.ImageLocation = SourceImageFile;
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error Copying Image File", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+            return true;
         }
         private void _FillingComboBoxOfCountries()
         {
@@ -79,28 +126,28 @@ namespace DVLD
                 cbCountries.Items.Add(country["CountryName"].ToString());
             }
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
             {
-                MessageBox.Show("Please fill all required information!", "Incomplete Information",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Some fields aren't valid, put the mouse over the red icon(s) to see the error(s).",
+                   "Invalid fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            _Gender = (rbMale.Checked == true) ? enGender.Male : enGender.Female;
+            if (!_HandleImage()) return;
             _Person.NationalNo = txtNationalNo.Text.Trim();
             _Person.FirstName = txtFirstName.Text.Trim();
             _Person.SecondName = txtSecondName.Text.Trim();
             _Person.ThirdName = txtThirdName.Text.Trim();
             _Person.LastName = txtLastName.Text.Trim();
-            _Person.Gender = (sbyte)_Gender;
+            _Person.Gender = (rbMale.Checked == true) ? (sbyte)enGender.Male : (sbyte)enGender.Female;
             _Person.DateOfBirth = DTDateOfBirth.Value;
             _Person.Email = txtEmail.Text.Trim();
             _Person.Address = txtAddress.Text.Trim();
             _Person.Phone = txtPhone.Text.Trim();
-            _Person.CountryID = clsCountry.CountryID(cbCountries.SelectedItem.ToString());
+            _Person.CountryID = clsCountry.FindCountryByName(cbCountries.SelectedItem.ToString()).CountryID;
             _Person.ImagePath = PicBoxM_F.ImageLocation == null ? "" : PicBoxM_F.ImageLocation;
+            
             switch (_Mode)
             {
                 case enMode.AddNew:
@@ -108,10 +155,12 @@ namespace DVLD
                         if (_Person.Save())
                         {
                             lblShowingID.Text = _Person.PersonID.ToString();
+                            _Mode = enMode.Update;
                             MessageBox.Show($"Added Person Successfully with ID : {_Person.PersonID} !",
                                 "New Person!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            _Mode = enMode.Update;
                             lblTitle.Text = "Edit Person";
+                            this.Text = "Edit Person";
+                            DataBack?.Invoke(this, _Person.PersonID);
                         }
                         else MessageBox.Show("Added Person Failed !",
                                 "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -124,6 +173,7 @@ namespace DVLD
                         {
                             MessageBox.Show($"Person with ID : {_Person.PersonID} Updated Successfully !",
                                 "Updated!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            DataBack?.Invoke(this, _Person.PersonID);
                         }
                         else MessageBox.Show("Update Failed !",
                                 "Failed!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -170,49 +220,47 @@ namespace DVLD
 
         private void txtEmail_Validating(object sender, CancelEventArgs e)
         {
-            if (txtEmail.Text == string.Empty || txtEmail.Text.Contains("@"))
+            if (txtEmail.Text == string.Empty)
             {
-                e.Cancel = false;
-                errorProvider1.SetError(txtEmail, "");
+                errorProvider1.SetError(txtEmail, null);
+                return;
             }
-            else
+            if (!clsValidation.ValidateEmail(txtEmail.Text))
             {
                 e.Cancel = true;
                 txtEmail.Focus();
-                errorProvider1.SetError(txtEmail, "Please enter corrected Email");
+                errorProvider1.SetError(txtEmail, "Invalid Email address format");
+                return;
             }
-        }
+                e.Cancel = false;
+                errorProvider1.SetError(txtEmail, null);
+            
+    }
 
         private void txt_Validating(object sender, CancelEventArgs e)
         {
             // Cast sender to TextBox
             TextBox textBox = (TextBox)sender;
-
-            if (textBox != null) // Check if the sender is a TextBox
+            if (string.IsNullOrWhiteSpace(textBox.Text))
             {
-                if (string.IsNullOrWhiteSpace(textBox.Text)) // Check if the TextBox is empty
-                {
-                    e.Cancel = true; // Cancel the validation
-                    textBox.Focus(); // Set focus back to the TextBox
-                    errorProvider1.SetError(textBox, "Please fill the text box!"); // Set the error message
-                }
-                else
-                {
-                    e.Cancel = false; // Validation is successful
-                    errorProvider1.SetError(textBox, null); // Clear the error message
-                }
+                e.Cancel = true;
+                errorProvider1.SetError(textBox, "This field is required!"); // Set the error message
+            }
+            else
+            {
+                e.Cancel = false; // Validation is successful
+                errorProvider1.SetError(textBox, null); // Clear the error message
             }
         }
-
         private void txtNationalNo_Validating(object sender, CancelEventArgs e)
         {
 
             if (string.IsNullOrWhiteSpace(txtNationalNo.Text))
             {
                 e.Cancel = true;
-                txtNationalNo.Focus(); 
-                errorProvider1.SetError(txtNationalNo, "Please fill the text box!");
-                }
+                errorProvider1.SetError(txtNationalNo, "This field is required!");
+                return;
+            }
             else
             {
                 errorProvider1.SetError(txtNationalNo, null); 
@@ -220,8 +268,7 @@ namespace DVLD
             if (clsPerson.IsNationalNoExist(txtNationalNo.Text) && _Person.NationalNo != txtNationalNo.Text)
             {
                 e.Cancel = true;
-                txtNationalNo.Focus();
-                errorProvider1.SetError(txtNationalNo, "The National No. already exists, write another one!");
+                errorProvider1.SetError(txtNationalNo, "This national number is used for another person!");
             }
             else
             {
