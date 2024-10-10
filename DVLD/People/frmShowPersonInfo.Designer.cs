@@ -1,4 +1,6 @@
-﻿namespace DVLD
+﻿using DVLD.Controls;
+
+namespace DVLD.People
 {
     partial class frmShowPersonInfo
     {
@@ -30,7 +32,7 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlPersonCard = new DVLD.ctrlPersonCard();
+            this.ctrlPersonCard = new DVLD.Controls.ctrlPersonCard();
             this.SuspendLayout();
             // 
             // label1

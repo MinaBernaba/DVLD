@@ -1,4 +1,4 @@
-﻿namespace DVLD
+﻿namespace DVLD.Controls
 {
     partial class ctrlPersonCard
     {

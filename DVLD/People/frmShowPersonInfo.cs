@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DVLD.Controls;
 
-namespace DVLD 
+namespace DVLD.People 
 {
     public partial class frmShowPersonInfo : Form
     {

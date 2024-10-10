@@ -12,10 +12,10 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.csproj.CoreCompileIn
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.exe
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.pdb
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmListPeople.resources
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmAddUpdatePerson.resources
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmShowPersonInfo.resources
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.ctrlPersonCard.resources
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmFindPerson.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.frmMain.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.ctrlPersonCardWithFilter.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.ctrlPersonCard.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmShowPersonInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmFindPerson.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmAddUpdatePerson.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmListPeople.resources

@@ -10,8 +10,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-
-namespace DVLD
+using DVLD.People;
+namespace DVLD.Controls
 {
     public partial class ctrlPersonCard : UserControl
     {

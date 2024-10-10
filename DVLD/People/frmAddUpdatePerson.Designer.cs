@@ -1,4 +1,4 @@
-﻿namespace DVLD
+﻿namespace DVLD.People
 {
     partial class frmAddUpdatePerson
     {

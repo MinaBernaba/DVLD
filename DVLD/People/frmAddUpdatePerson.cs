@@ -12,7 +12,7 @@ using System.Windows.Forms;
 using System.IO;
 using DVLD.classes;
 
-namespace DVLD
+namespace DVLD.People
 {
     public partial class frmAddUpdatePerson : Form
     {

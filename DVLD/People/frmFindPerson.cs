@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DVLD.Controls;
 
-namespace DVLD
+namespace DVLD.People
 {
     public partial class frmFindPerson : Form
     {

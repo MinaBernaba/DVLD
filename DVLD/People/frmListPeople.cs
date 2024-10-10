@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
-namespace DVLD
+namespace DVLD.People
 {
     public partial class frmListPeople : Form
     {
