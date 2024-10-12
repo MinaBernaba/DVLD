@@ -85,6 +85,7 @@
             this.usresToolStripMenuItem.Name = "usresToolStripMenuItem";
             this.usresToolStripMenuItem.Size = new System.Drawing.Size(141, 68);
             this.usresToolStripMenuItem.Text = "Usres";
+            this.usresToolStripMenuItem.Click += new System.EventHandler(this.usresToolStripMenuItem_Click);
             // 
             // accountSettingsToolStripMenuItem
             // 

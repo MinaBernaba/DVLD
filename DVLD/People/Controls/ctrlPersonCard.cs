@@ -1,4 +1,4 @@
-﻿using BusinessLogicOfDVLV;
+﻿using BusinessLogicOfDVLD;
 using DVLD.Properties;
 using System;
 using System.Collections.Generic;
@@ -28,7 +28,7 @@ namespace DVLD.Controls
             _Person = clsPerson.Find(PersonID);
             if (_Person == null)
             {
-                _ResetPersonInfo();
+                ResetPersonInfo();
                 MessageBox.Show("No Person with PersonID = " + PersonID, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -39,7 +39,7 @@ namespace DVLD.Controls
         {
             _Person = clsPerson.Find(NationalNo);
             if (_Person == null) {
-                _ResetPersonInfo();
+                ResetPersonInfo();
                 MessageBox.Show("No Person with National No. = " + NationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -48,9 +48,8 @@ namespace DVLD.Controls
         }
         private void _FillPersonInfo()
         {
-            lblName.Text = (_Person.ThirdName != "") ? _Person.FirstName + " " + _Person.SecondName +
-                " " + _Person.ThirdName + " " + _Person.LastName
-                : _Person.FirstName + " " + _Person.SecondName + " " + _Person.LastName;
+            lnkEditPerson.Enabled = true;
+            lblName.Text = _Person.FullName;
             lblShowingID.Text = _Person.PersonID.ToString();
             lblNationalNo.Text = _Person.NationalNo;
             lblGender.Text = (_Person.Gender == 0) ? "Male" : "Female";
@@ -79,7 +78,7 @@ namespace DVLD.Controls
             EditForm.ShowDialog();
             LoadPersonInfo(_PersonID);
         }
-        private void _ResetPersonInfo()
+        public void ResetPersonInfo()
         {
             _PersonID = -1;
             lblShowingID.Text = "[????]";

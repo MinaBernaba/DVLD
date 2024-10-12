@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BusinessLogicOfDVLV
+namespace BusinessLogicOfDVLD
 {
     public class clsCountry
     {

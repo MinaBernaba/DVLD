@@ -19,3 +19,5 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmShowPerson
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmFindPerson.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmAddUpdatePerson.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmListPeople.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmListUsers.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmAddUpdateUser.resources

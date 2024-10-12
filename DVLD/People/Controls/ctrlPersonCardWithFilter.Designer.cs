@@ -86,13 +86,13 @@
             this.txtFilter.Size = new System.Drawing.Size(189, 30);
             this.txtFilter.TabIndex = 2;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
-            this.txtFilter.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilter_Validating);
             // 
             // cbFindBy
             // 
+            this.cbFindBy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFindBy.FormattingEnabled = true;
             this.cbFindBy.Items.AddRange(new object[] {
-            "PersonID",
+            "Person ID",
             "National Number"});
             this.cbFindBy.Location = new System.Drawing.Point(127, 27);
             this.cbFindBy.Name = "cbFindBy";

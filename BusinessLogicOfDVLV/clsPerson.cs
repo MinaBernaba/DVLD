@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using DataAccessDVLD;
 
-namespace BusinessLogicOfDVLV
+namespace BusinessLogicOfDVLD
 {
     public class clsPerson
     {
@@ -18,6 +18,9 @@ namespace BusinessLogicOfDVLV
         public string SecondName { get; set; }
         public string ThirdName { get; set; }
         public string LastName { get; set; }
+        public string FullName {
+            get { return FirstName + " " + SecondName + " " + ThirdName + " " + LastName; }
+        }
         public DateTime DateOfBirth { get; set; }
         public sbyte Gender { get; set; }
         public string Address { get; set; }

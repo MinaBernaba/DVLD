@@ -1,4 +1,4 @@
-﻿using BusinessLogicOfDVLV;
+﻿using BusinessLogicOfDVLD;
 using DVLD.Properties;
 using System;
 using System.Collections.Generic;

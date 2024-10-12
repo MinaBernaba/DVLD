@@ -25,12 +25,7 @@ namespace DataAccessDVLD
 
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
 
-            string Query = "select People.PersonID , People.NationalNo , People.FirstName ," +
-                "People.SecondName , People.ThirdName , People.LastName ,People.DateOfBirth," +
-                "People.Gender ,People.Email , People.Address , People.Phone , " +
-                "People.NationalityCountryID ,People.ImagePath " +
-                "from People where" +
-                " People.PersonID = @PersonID;";
+            string Query = "select * from people where PersonID = @PersonID;";
 
             SqlCommand cmd = new SqlCommand(Query, conn);
 
@@ -70,9 +65,9 @@ namespace DataAccessDVLD
         {
             bool IsFound = false;
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "select People.PersonID , People.NationalNo , People.FirstName , People.SecondName , People.ThirdName , \r\nPeople.LastName ,People.DateOfBirth, Gender = \r\ncase\r\nwhen People.Gender ,\r\nPeople.Email , People.Address , People.Phone , Nationality = Countries.CountryName , People.ImagePath\r\nfrom People join Countries on People.NationalityCountryID = Countries.CountryID where People.NationalNo = @People.NationalNo ";
+            string Query = "select * from people where NationalNo = @NationalNo;";
             SqlCommand cmd = new SqlCommand(Query, conn);
-            cmd.Parameters.AddWithValue("@People.NationalNo", NationalNo);
+            cmd.Parameters.AddWithValue("@NationalNo", NationalNo);
             try
             {
                 conn.Open();
@@ -86,11 +81,11 @@ namespace DataAccessDVLD
                     ThirdName = reader["ThirdName"] != DBNull.Value ? ThirdName = (string)reader["ThirdName"] : "";
                     LastName = (string)reader["LastName"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gender = (sbyte)(byte)reader["Gender"];
+                    Gender = (sbyte)(byte)(reader["Gender"]);
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = reader["Email"] != DBNull.Value ? Email = (string)reader["Email"] : "";
-                    NationalityCountryID = (byte)reader["NationalityCountryID"];
+                    NationalityCountryID = (byte)(int)reader["NationalityCountryID"];
                     ImagePath = reader["ImagePath"] != DBNull.Value ? ImagePath = (string)reader["ImagePath"] : "";
                 }
                 reader.Close();

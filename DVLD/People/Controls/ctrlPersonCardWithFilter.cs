@@ -1,4 +1,4 @@
-﻿using BusinessLogicOfDVLV;
+﻿using BusinessLogicOfDVLD;
 using DVLD.People;
 using System;
 using System.Collections.Generic;
@@ -43,7 +43,7 @@ namespace DVLD.Controls
         }
         public void LoadPersonInfo(int PersonID)
         {
-            cbFindBy.SelectedItem = "Person ID";
+            cbFindBy.Text = "Person ID";
             txtFilter.Text = PersonID.ToString();
             FindNow();
         }
@@ -55,7 +55,7 @@ namespace DVLD.Controls
         }
         private void FindNow()
         {
-            switch (cbFindBy.SelectedText)
+            switch (cbFindBy.Text)
             {
                 case "Person ID":
                     {
@@ -69,18 +69,9 @@ namespace DVLD.Controls
                     }
                     default:break;
             }
-            if(EnableFilter)
+            if (EnableFilter)
             OnPersonSelected?.Invoke(ctrlPersonCard.PersonID);
 
-        }
-        private void txtFilter_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtFilter.Text == string.Empty)
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(txtFilter, "This field is required");
-            }
-            else errorProvider1.SetError(txtFilter, null);
         }
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -108,6 +99,7 @@ namespace DVLD.Controls
         {
             txtFilter.Text = string.Empty;
             txtFilter.Focus();
+            ctrlPersonCard.ResetPersonInfo();
         }
         private void DataBackEvent(object sender, int PersonID)
         {
@@ -123,5 +115,6 @@ namespace DVLD.Controls
         {
             txtFilter.Focus();
         }
+
     }
 }

@@ -74,6 +74,7 @@
             // lnkEditPerson
             // 
             this.lnkEditPerson.AutoSize = true;
+            this.lnkEditPerson.Enabled = false;
             this.lnkEditPerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnkEditPerson.Location = new System.Drawing.Point(638, 30);
             this.lnkEditPerson.Name = "lnkEditPerson";
