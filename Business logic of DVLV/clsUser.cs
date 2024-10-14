@@ -17,7 +17,7 @@ namespace BusinessLogicOfDVLD
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        clsPerson Person { get; set; }
+        public clsPerson Person { get; set; }
 
         public clsUser()
         {
@@ -52,9 +52,17 @@ namespace BusinessLogicOfDVLD
         {
             return clsUserData.DeleteUser(UserID);
         }
-        public static bool IsExist(int UserID)
+        public static bool IsUserIDExist(int UserID)
         {
-            return (clsUserData.IsExist(UserID));
+            return clsUserData.IsUserIDExist(UserID);
+        }
+        public static bool IsUserNameExist(string UserName)
+        {
+            return clsUserData.IsPersonIDExist(UserName);
+        }
+        public static bool IsPersonIDExist(int PersonID)
+        {
+            return clsUserData.IsUserIDExist(PersonID);
         }
         private bool _AddNewUser()
         {

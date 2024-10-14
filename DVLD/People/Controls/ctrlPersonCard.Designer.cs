@@ -327,10 +327,11 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblName.Location = new System.Drawing.Point(184, 85);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(50, 22);
+            this.lblName.Size = new System.Drawing.Size(55, 22);
             this.lblName.TabIndex = 137;
             this.lblName.Text = "[???]";
             // 

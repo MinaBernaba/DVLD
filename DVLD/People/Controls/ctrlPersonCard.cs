@@ -40,7 +40,7 @@ namespace DVLD.Controls
             _Person = clsPerson.Find(NationalNo);
             if (_Person == null) {
                 ResetPersonInfo();
-                MessageBox.Show("No Person with National No. = " + NationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No Person with National Number : " + NationalNo, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             _PersonID = _Person.PersonID;

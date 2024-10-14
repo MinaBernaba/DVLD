@@ -194,10 +194,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 270);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 32);
+            this.label3.Size = new System.Drawing.Size(157, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "Filter by :  ";
             // 
@@ -218,7 +218,7 @@
             "Gender",
             "Phone",
             "Email"});
-            this.cbFilter.Location = new System.Drawing.Point(144, 269);
+            this.cbFilter.Location = new System.Drawing.Point(151, 269);
             this.cbFilter.Name = "cbFilter";
             this.cbFilter.Size = new System.Drawing.Size(211, 33);
             this.cbFilter.TabIndex = 8;
@@ -228,7 +228,7 @@
             // 
             this.txtFilter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFilter.Location = new System.Drawing.Point(374, 268);
+            this.txtFilter.Location = new System.Drawing.Point(376, 268);
             this.txtFilter.Name = "txtFilter";
             this.txtFilter.Size = new System.Drawing.Size(244, 34);
             this.txtFilter.TabIndex = 9;
@@ -281,7 +281,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnClose;
-            this.ClientSize = new System.Drawing.Size(1196, 755);
+            this.ClientSize = new System.Drawing.Size(1196, 770);
             this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.cbFilter);
             this.Controls.Add(this.label3);

@@ -83,6 +83,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Add_New_User_72 {
+            get {
+                object obj = ResourceManager.GetObject("Add New User 72", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Add_Person_40 {
             get {
                 object obj = ResourceManager.GetObject("Add Person 40", resourceCulture);
@@ -283,6 +293,16 @@ namespace DVLD.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Password_32 {
+            get {
+                object obj = ResourceManager.GetObject("Password 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap People_400 {
             get {
                 object obj = ResourceManager.GetObject("People 400", resourceCulture);
@@ -376,6 +396,16 @@ namespace DVLD.Properties {
         internal static System.Drawing.Bitmap send_email_32 {
             get {
                 object obj = ResourceManager.GetObject("send email 32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Users_2_400 {
+            get {
+                object obj = ResourceManager.GetObject("Users 2 400", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

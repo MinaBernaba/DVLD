@@ -1,4 +1,5 @@
 ﻿using BusinessLogicOfDVLD;
+using DVLD.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,10 +34,15 @@ namespace DVLD.Users
             if (dgvUsers.Rows.Count > 0)
             {
                 dgvUsers.Columns[0].HeaderText = "User ID";
+                dgvUsers.Columns[0].Width = 110;
                 dgvUsers.Columns[1].HeaderText = "Person ID";
+                dgvUsers.Columns[1].Width = 120;
                 dgvUsers.Columns[2].HeaderText = "Full Name";
+                dgvUsers.Columns[2].Width = 500;
                 dgvUsers.Columns[3].HeaderText = "User Name";
+                dgvUsers.Columns[3].Width = 150;
                 dgvUsers.Columns[4].HeaderText = "Is Active";
+                dgvUsers.Columns[4].Width = 110;
             }
         }
 
@@ -44,6 +50,12 @@ namespace DVLD.Users
         {
             txtFilter.Visible = (cbFilter.Text != "None" && cbFilter.Text != "Is Active");
             cbIsActiveOptions.Visible = (cbFilter.Text == "Is Active");
+            if (cbFilter.Text == "None")
+            {
+                dataViewUsers.RowFilter = "";
+                lblRecords.Text = dataViewUsers.Count.ToString();
+                return;
+            }
             if (cbIsActiveOptions.Visible)
             {
                 cbIsActiveOptions.SelectedIndex = 0;
@@ -111,6 +123,7 @@ namespace DVLD.Users
             {
                 case "All":
                     {
+                        dataViewUsers.RowFilter = "";
                         return;
                     }
                 case "Yes":
@@ -130,10 +143,50 @@ namespace DVLD.Users
         {
             frmAddUpdateUser frm = new frmAddUpdateUser();
             frm.ShowDialog();
+            _Refresh();
         }
         private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdateUser frm = new frmAddUpdateUser((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Refresh();
+        }
+        private void deleteUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure that you want to delete this user?","Confirm!",
+                MessageBoxButtons.OKCancel,MessageBoxIcon.Question) == DialogResult.OK){
+                if (clsUser.DeleteUser((int)dgvUsers.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("User deleted successfully!", "User Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _Refresh();
+                }
+                else  MessageBox.Show("This user can't be deleted due to data linked to him!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature doesn't implemented yet!", "Not ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature doesn't implemented yet!", "Not ready!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(cbFilter.Text == "Person ID" || cbFilter.Text == "User ID")
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
     }

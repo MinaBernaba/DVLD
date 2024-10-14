@@ -22,7 +22,7 @@ namespace DVLD.Controls
             set
             {
                 _EnableFilter = value;
-                gbFilter.Visible = _EnableFilter;
+                gbFilter.Enabled = _EnableFilter;
             }
         }
         private bool _ShowAddNew = true;
@@ -60,12 +60,12 @@ namespace DVLD.Controls
                 case "Person ID":
                     {
                         ctrlPersonCard.LoadPersonInfo(Convert.ToInt16(txtFilter.Text));
-                        return;
+                        break;
                     }
                 case "National Number":
                     {
                         ctrlPersonCard.LoadPersonInfo(txtFilter.Text);
-                        return;
+                        break;
                     }
                     default:break;
             }
@@ -76,7 +76,7 @@ namespace DVLD.Controls
         private void txtFilter_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)13) btnFind.PerformClick();
-            if (cbFindBy.SelectedText == "Person ID") 
+            if (cbFindBy.Text == "Person ID") 
                 e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         private void btnFind_Click(object sender, EventArgs e)

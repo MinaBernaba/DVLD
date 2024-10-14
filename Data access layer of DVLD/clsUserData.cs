@@ -13,15 +13,50 @@ namespace DataAccessDVLD
 {
     public class clsUserData
     {
-        public static bool IsExist(int UserID)
+        public static bool IsUserIDExist(int UserID)
         {
             bool IsFound = false;
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "select Found = 1 where UserID = @UserID";
+            string Query = "select Found = 1 from Users where UserID = @UserID";
             SqlCommand cmd = new SqlCommand(Query, conn);
             cmd.Parameters.AddWithValue("@UserID", UserID);
             try
             {
+                conn.Open();
+                object reader = cmd.ExecuteScalar();
+                if (reader != null) IsFound = true;
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return IsFound;
+        }
+        public static bool IsUserNameExist(string UserName)
+        {
+            bool IsFound = false;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = "select Found = 1 from Users where UserName = @UserName";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+            cmd.Parameters.AddWithValue("@UserName", UserName);
+            try
+            {
+                conn.Open();
+                object reader = cmd.ExecuteScalar();
+                if (reader != null) IsFound = true;
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return IsFound;
+        }
+        public static bool IsPersonIDExist(string PersonID)
+        {
+            bool IsFound = false;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = "select Found = 1 from Users where PersonID = @PersonID";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+            cmd.Parameters.AddWithValue("@PersonID", PersonID);
+            try
+            {
+                conn.Open();
                 object reader = cmd.ExecuteScalar();
                 if (reader != null) IsFound = true;
             }
@@ -60,7 +95,7 @@ namespace DataAccessDVLD
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
             String Query = "select Users.UserID , Users.PersonID , " +
-                "FullName = People.FirstName + People.SecondName + People.ThirdName + People.LastName" +
+                "FullName = People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName" +
                 ", Users.UserName , Users.IsActive" +
                 " from Users join People on Users.PersonID = People.PersonID";
             SqlCommand cmd = new SqlCommand(Query, conn);

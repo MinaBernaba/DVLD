@@ -22,7 +22,7 @@ namespace DVLD.People
         enum enMode { AddNew, Update }
         private enMode _Mode = enMode.AddNew;
         enum enGender { Male, Female }
-        private clsPerson _Person;
+        private clsPerson _Person = new clsPerson();
         private int _PersonID = -1;
         public frmAddUpdatePerson()
         {
@@ -51,7 +51,6 @@ namespace DVLD.People
                         this.Text = "Add New Person";
                         lblTitle.Text = "Add New Person";
                         cbCountries.SelectedIndex = cbCountries.FindString("Egypt");
-                        _Person = new clsPerson();
                         return;
                     }
                 case enMode.Update:

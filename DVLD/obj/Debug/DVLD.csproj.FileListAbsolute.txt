@@ -21,3 +21,5 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmAddUpdateP
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmListPeople.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmListUsers.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmAddUpdateUser.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.ctrlUserCard.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.frmUserInfo.resources

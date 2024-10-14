@@ -93,6 +93,12 @@
     <Compile Include="People\Controls\ctrlPersonCard.Designer.cs">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\Controls\ctrlUserCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Users\Controls\ctrlUserCard.Designer.cs">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmListUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,12 @@
     </Compile>
     <Compile Include="Users\frmAddUpdateUser.Designer.cs">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users\frmUserInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmUserInfo.Designer.cs">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -136,11 +148,17 @@
     <EmbeddedResource Include="People\Controls\ctrlPersonCard.resx">
       <DependentUpon>ctrlPersonCard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Users\Controls\ctrlUserCard.resx">
+      <DependentUpon>ctrlUserCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\frmListUsers.resx">
       <DependentUpon>frmListUsers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmAddUpdateUser.resx">
       <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmUserInfo.resx">
+      <DependentUpon>frmUserInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -154,12 +172,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BusinessLogicOfDVLV\BusinessLogicOfDVLD.csproj">
-      <Project>{d676b33b-e76d-416b-b2b0-ef3ad724a4e5}</Project>
-      <Name>BusinessLogicOfDVLD</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Number 32.png" />
@@ -262,6 +274,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Next 32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business logic of DVLV\BusinessLogicOfDVLD.csproj">
+      <Project>{d676b33b-e76d-416b-b2b0-ef3ad724a4e5}</Project>
+      <Name>BusinessLogicOfDVLD</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add New User 72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Users 2 400.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password 32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
