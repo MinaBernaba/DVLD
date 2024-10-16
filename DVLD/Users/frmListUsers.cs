@@ -21,6 +21,7 @@ namespace DVLD.Users
         }
         private void _Refresh()
         {
+            cbFilter.SelectedIndex = 0;
             DataTable dtUsers = clsUser.GetAllUsers().DefaultView.ToTable(false, 
                 "UserID", "PersonID", "FullName", "UserName", "IsActive"); ;
             dataViewUsers = dtUsers.DefaultView;
@@ -29,7 +30,6 @@ namespace DVLD.Users
         }
         private void frmListUsers_Load(object sender, EventArgs e)
         {
-            cbFilter.SelectedIndex = 0;
             _Refresh();
             if (dgvUsers.Rows.Count > 0)
             {
@@ -38,9 +38,9 @@ namespace DVLD.Users
                 dgvUsers.Columns[1].HeaderText = "Person ID";
                 dgvUsers.Columns[1].Width = 120;
                 dgvUsers.Columns[2].HeaderText = "Full Name";
-                dgvUsers.Columns[2].Width = 500;
+                dgvUsers.Columns[2].Width = 450;
                 dgvUsers.Columns[3].HeaderText = "User Name";
-                dgvUsers.Columns[3].Width = 150;
+                dgvUsers.Columns[3].Width = 200;
                 dgvUsers.Columns[4].HeaderText = "Is Active";
                 dgvUsers.Columns[4].Width = 110;
             }
@@ -60,11 +60,13 @@ namespace DVLD.Users
             {
                 cbIsActiveOptions.SelectedIndex = 0;
                 cbIsActiveOptions.Focus();
+                return;
             }
             if (txtFilter.Visible)
             {
                 txtFilter.Text = string.Empty;
                 txtFilter.Focus();
+                return;
             }
         }
 
@@ -73,11 +75,6 @@ namespace DVLD.Users
             string RowFilter = string.Empty;
             switch (cbFilter.Text)
             {
-                case "None":
-                    {
-                        RowFilter = "None";
-                        break;
-                    }
                 case "User ID":
                     {
                         RowFilter = "UserID";
@@ -103,8 +100,14 @@ namespace DVLD.Users
                         RowFilter = "IsActive";
                         break;
                     }
+
+                default:
+                    {
+                        RowFilter = "None";
+                        break;
+                    }
             }
-            if (txtFilter.Text == string.Empty)
+            if (txtFilter.Text == string.Empty || RowFilter == "None")
             {
                 dataViewUsers.RowFilter = "";
                 lblRecords.Text = dataViewUsers.Count.ToString();
@@ -124,19 +127,20 @@ namespace DVLD.Users
                 case "All":
                     {
                         dataViewUsers.RowFilter = "";
-                        return;
+                        break;
                     }
                 case "Yes":
                     {
                         dataViewUsers.RowFilter = " IsActive = true";
-                        return;
+                        break;
                     }
                 case "No":
                     {
                         dataViewUsers.RowFilter = " IsActive = false";
-                        return;
+                        break;
                     }
             }
+            lblRecords.Text = dataViewUsers.Count.ToString();
         }
 
         private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
@@ -187,6 +191,12 @@ namespace DVLD.Users
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUserInfo frm = new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frm = new frmChangePassword((int)dgvUsers.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
     }

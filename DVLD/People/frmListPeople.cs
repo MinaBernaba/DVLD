@@ -76,7 +76,7 @@ namespace DVLD.People
                     MessageBox.Show("Deleted Person Successfully!", "Deleted",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else MessageBox.Show("Deletion Failed!", "Person can't be deleted because it has data linked to him",
+                else MessageBox.Show("Person can't be deleted because it has data linked to him", "Deletion Failed!",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             _RefreshDataGridView();

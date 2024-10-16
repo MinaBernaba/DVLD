@@ -91,7 +91,7 @@ namespace BusinessLogicOfDVLD
             sbyte Gender = -1;
             byte CountryID = 0;
 
-            if (clsPeopleData.Find(ref PersonID, NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
+            if (clsPeopleData.Find(ref PersonID,ref NationalNo, ref FirstName, ref SecondName, ref ThirdName, ref LastName,
                ref DateOfBirth, ref Gender, ref Address, ref Phone, ref Email, ref CountryID, ref ImagePath))
             {
                 return new clsPerson(PersonID, NationalNo, FirstName, SecondName, ThirdName, LastName,

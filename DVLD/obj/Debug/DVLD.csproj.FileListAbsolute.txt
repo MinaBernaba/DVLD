@@ -22,4 +22,6 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.People.frmListPeople
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmListUsers.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmAddUpdateUser.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.ctrlUserCard.resources
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.frmUserInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmChangePassword.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Login_Screen.frmLogin.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmUserInfo.resources

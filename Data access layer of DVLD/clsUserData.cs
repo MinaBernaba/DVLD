@@ -90,14 +90,38 @@ namespace DataAccessDVLD
             finally { conn.Close(); }
             return IsFound;
         }
+        public static bool FindByUsernameAndPassword(ref int UserID, ref int PersonID, string UserName,
+            string Password, ref bool IsActive)
+        {
+            bool IsFound = false;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = "select * from users where UserName = @UserName and Password = @Password ";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+            cmd.Parameters.AddWithValue("UserName", UserName);
+            cmd.Parameters.AddWithValue("Password", Password);
+            try
+            {
+                conn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    IsFound = true;
+                    PersonID = (int)reader["PersonID"];
+                    UserID = (int)reader["UserID"];
+                    IsActive = (bool)reader["IsActive"];
+                }
+                reader.Close();
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return IsFound;
+        }
+
         public static DataTable GetAllUsers()
         {
             DataTable dt = new DataTable();
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            String Query = "select Users.UserID , Users.PersonID , " +
-                "FullName = People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName" +
-                ", Users.UserName , Users.IsActive" +
-                " from Users join People on Users.PersonID = People.PersonID";
+            String Query = "select Users.UserID , Users.PersonID , \r\nFullName = \r\ncase \r\nwhen ThirdName is null then People.FirstName + ' ' + People.SecondName + ' ' + People.LastName\r\nelse People.FirstName + ' ' + People.SecondName + ' ' + People.ThirdName + ' ' + People.LastName\r\nend,\r\nUsers.UserName , Users.IsActive\r\nfrom Users join People on Users.PersonID = People.PersonID";
             SqlCommand cmd = new SqlCommand(Query, conn);
             try
             {

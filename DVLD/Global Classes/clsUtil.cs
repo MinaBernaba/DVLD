@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD.classes
+namespace DVLD.Classes
 {
     public class clsUtil
     {

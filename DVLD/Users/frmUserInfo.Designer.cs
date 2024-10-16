@@ -1,4 +1,4 @@
-﻿namespace DVLD.Controls
+﻿namespace DVLD.Users
 {
     partial class frmUserInfo
     {
@@ -53,7 +53,6 @@
             this.ctrlUserCard.Name = "ctrlUserCard";
             this.ctrlUserCard.Size = new System.Drawing.Size(855, 442);
             this.ctrlUserCard.TabIndex = 0;
-            
             // 
             // frmUserInfo
             // 
@@ -67,7 +66,9 @@
             this.Controls.Add(this.ctrlUserCard);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmUserInfo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "User Info";
+            this.Load += new System.EventHandler(this.frmUserInfo_Load);
             this.ResumeLayout(false);
 
         }

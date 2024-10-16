@@ -81,16 +81,16 @@ namespace DVLD.Controls
         public void ResetPersonInfo()
         {
             _PersonID = -1;
-            lblShowingID.Text = "[????]";
-            lblNationalNo.Text = "[????]";
-            lblName.Text = "[????]";
+            lblShowingID.Text = "[???]";
+            lblNationalNo.Text = "[???]";
+            lblName.Text = "[???]";
             PicGender.Image = Resources.Man_32;
-            lblGender.Text = "[????]";
-            lblEmail.Text = "[????]";
-            lblPhone.Text = "[????]";
-            lblDateOfBirth.Text = "[????]";
-            lblCountry.Text = "[????]";
-            lblAddress.Text = "[????]";
+            lblGender.Text = "[???]";
+            lblEmail.Text = "[???]";
+            lblPhone.Text = "[???]";
+            lblDateOfBirth.Text = "[???]";
+            lblCountry.Text = "[???]";
+            lblAddress.Text = "[???]";
             PicBoxPerson.Image = Resources.Male_512;
 
         }

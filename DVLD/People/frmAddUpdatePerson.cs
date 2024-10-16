@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using DVLD.classes;
+using DVLD.Classes;
 
 namespace DVLD.People
 {
@@ -273,6 +273,11 @@ namespace DVLD.People
             {
                 errorProvider1.SetError(txtNationalNo, null);
             }
+        }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
     }
 }

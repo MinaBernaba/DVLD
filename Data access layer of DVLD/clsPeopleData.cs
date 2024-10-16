@@ -60,7 +60,7 @@ namespace DataAccessDVLD
             }
             return IsFound;
         }
-        public static bool Find(ref int PersonID, string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
+        public static bool Find(ref int PersonID, ref string NationalNo, ref string FirstName, ref string SecondName, ref string ThirdName, ref string LastName,
            ref DateTime DateOfBirth, ref sbyte Gender, ref string Address, ref string Phone, ref string Email, ref byte NationalityCountryID, ref string ImagePath)
         {
             bool IsFound = false;
@@ -76,6 +76,7 @@ namespace DataAccessDVLD
                 {
                     IsFound = true;
                     PersonID = (int)reader["PersonID"];
+                    NationalNo = (string)reader["NationalNo"];
                     FirstName = (string)reader["FirstName"];
                     SecondName = (string)reader["SecondName"];
                     ThirdName = reader["ThirdName"] != DBNull.Value ? ThirdName = (string)reader["ThirdName"] : "";

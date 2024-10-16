@@ -14,8 +14,8 @@ namespace DVLD.Controls
     public partial class ctrlUserCard : UserControl
     {
         private int _UserID = -1;
+        private clsUser _User;
         public int UserID { get { return _UserID; } }
-        private clsUser _User = new clsUser();
         public clsUser User {  get { return _User; } }
 
         public ctrlUserCard()

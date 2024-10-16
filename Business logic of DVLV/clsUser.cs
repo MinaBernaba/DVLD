@@ -48,6 +48,16 @@ namespace BusinessLogicOfDVLD
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             else return null;
         }
+        public static clsUser FindUser(string Username , string Password)
+        {
+            int PersonID = -1;
+            int UserID = -1;
+            bool IsActive = false;
+            if (clsUserData.FindByUsernameAndPassword(ref UserID, ref PersonID, Username, Password, ref IsActive))
+                return new clsUser(UserID, PersonID, Username, Password, IsActive);
+            else return null;
+        }
+
         public static bool DeleteUser(int UserID)
         {
             return clsUserData.DeleteUser(UserID);
@@ -60,7 +70,7 @@ namespace BusinessLogicOfDVLD
         {
             return clsUserData.IsPersonIDExist(UserName);
         }
-        public static bool IsPersonIDExist(int PersonID)
+        public static bool IsUserExistByPersonID(int PersonID)
         {
             return clsUserData.IsUserIDExist(PersonID);
         }
