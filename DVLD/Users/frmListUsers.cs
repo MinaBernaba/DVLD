@@ -77,7 +77,7 @@ namespace DVLD.Users
             {
                 case "User ID":
                     {
-                        RowFilter = "UserID";
+                        RowFilter = "_UserID";
                         break;
                     }
                 case "Person ID":
@@ -113,7 +113,7 @@ namespace DVLD.Users
                 lblRecords.Text = dataViewUsers.Count.ToString();
                 return;
             }
-            if (RowFilter == "UserID" || RowFilter == "PersonID")
+            if (RowFilter == "_UserID" || RowFilter == "PersonID")
                 dataViewUsers.RowFilter = string.Format($"{RowFilter} = {txtFilter.Text.Trim()}");
             else dataViewUsers.RowFilter = string.Format($"{RowFilter} LIKE '{txtFilter.Text.Trim()}%'");
             lblRecords.Text = dataViewUsers.Count.ToString();

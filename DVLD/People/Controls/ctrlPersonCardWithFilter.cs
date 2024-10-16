@@ -55,6 +55,12 @@ namespace DVLD.Controls
         }
         private void FindNow()
         {
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show("Some fields aren't valid, put the mouse over the red icon(s) to see the error(s).",
+                   "Invalid fields", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             switch (cbFindBy.Text)
             {
                 case "Person ID":
@@ -115,6 +121,14 @@ namespace DVLD.Controls
         {
             txtFilter.Focus();
         }
-
+        private void txtFilter_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtFilter.Text == string.Empty)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtFilter , "Filter text can't be blank!");
+            }
+            else errorProvider.SetError(txtFilter, null);
+        }
     }
 }

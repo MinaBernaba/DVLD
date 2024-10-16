@@ -1,4 +1,5 @@
 ﻿using BusinessLogicOfDVLD;
+using DVLD.Classes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -95,16 +96,18 @@ namespace DVLD.Users
             {
                 MessageBox.Show("Password changed successfully", "Password changed",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string UserName = string.Empty , Password = string.Empty ;
+                if (clsGlobal.GetStoredCredential(ref UserName, ref Password))
+                {
+                    if (UserName == _User.UserName) clsGlobal.RememberMe(_User.UserName, _User.Password);
+                }
             }
             else MessageBox.Show("Password change failed", "Failed",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        
     }
 }

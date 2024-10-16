@@ -36,10 +36,10 @@
             this.cbFindBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.ctrlPersonCard = new DVLD.Controls.ctrlPersonCard();
             this.gbFilter.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // gbFilter
@@ -61,7 +61,7 @@
             // 
             this.btnAddNewPerson.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAddNewPerson.Image = global::DVLD.Properties.Resources.AddPerson_32;
-            this.btnAddNewPerson.Location = new System.Drawing.Point(595, 21);
+            this.btnAddNewPerson.Location = new System.Drawing.Point(611, 21);
             this.btnAddNewPerson.Name = "btnAddNewPerson";
             this.btnAddNewPerson.Size = new System.Drawing.Size(45, 44);
             this.btnAddNewPerson.TabIndex = 4;
@@ -72,7 +72,7 @@
             // 
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnFind.Image = global::DVLD.Properties.Resources.SearchPerson;
-            this.btnFind.Location = new System.Drawing.Point(544, 21);
+            this.btnFind.Location = new System.Drawing.Point(560, 21);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(45, 44);
             this.btnFind.TabIndex = 3;
@@ -86,6 +86,7 @@
             this.txtFilter.Size = new System.Drawing.Size(189, 30);
             this.txtFilter.TabIndex = 2;
             this.txtFilter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilter_KeyPress);
+            this.txtFilter.Validating += new System.ComponentModel.CancelEventHandler(this.txtFilter_Validating);
             // 
             // cbFindBy
             // 
@@ -109,9 +110,9 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Find By : ";
             // 
-            // errorProvider1
+            // errorProvider
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.errorProvider.ContainerControl = this;
             // 
             // ctrlPersonCard
             // 
@@ -132,7 +133,7 @@
             this.Load += new System.EventHandler(this.ctrlPersonCardWithFilter_Load);
             this.gbFilter.ResumeLayout(false);
             this.gbFilter.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -147,6 +148,6 @@
         private ctrlPersonCard ctrlPersonCard;
         private System.Windows.Forms.Button btnAddNewPerson;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
