@@ -17,7 +17,7 @@ namespace BusinessLogicOfDVLD
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        public clsPerson Person { get; set; }
+        public clsPerson PersonInfo { get; set; }
 
         public clsUser()
         {
@@ -35,14 +35,13 @@ namespace BusinessLogicOfDVLD
             this.UserName = UserName;
             this.Password = Password;
             this.IsActive = IsActive;
-            Person = clsPerson.Find(PersonID);
+            PersonInfo = clsPerson.Find(PersonID);
             Mode = enMode.Update;
         }
         public static clsUser FindUser(int UserID)
         {
             int PersonID = -1;
-            string UserName = string.Empty;
-            string Password = string.Empty;
+            string UserName = string.Empty, Password = string.Empty;
             bool IsActive = false;
             if (clsUserData.FindByID(UserID, ref PersonID, ref UserName, ref Password, ref IsActive))
                 return new clsUser(UserID, PersonID, UserName, Password, IsActive);
@@ -57,22 +56,30 @@ namespace BusinessLogicOfDVLD
                 return new clsUser(UserID, PersonID, Username, Password, IsActive);
             else return null;
         }
-
+        public static clsUser FindByPersonID(int PersonID)
+        {
+            int UserID = -1;
+            string UserName = string.Empty, Password = string.Empty;
+            bool IsActive = false;
+            if (clsUserData.FindByPersonID(PersonID, ref UserID, ref UserName, ref Password, ref IsActive))
+            return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            else return null;
+        }
         public static bool DeleteUser(int UserID)
         {
             return clsUserData.DeleteUser(UserID);
         }
         public static bool IsUserIDExist(int UserID)
         {
-            return clsUserData.IsUserIDExist(UserID);
+            return clsUserData.IsExist(UserID);
         }
         public static bool IsUserNameExist(string UserName)
         {
-            return clsUserData.IsPersonIDExist(UserName);
+            return clsUserData.IsExistByPersonID(UserName);
         }
         public static bool IsUserExistByPersonID(int PersonID)
         {
-            return clsUserData.IsUserIDExist(PersonID);
+            return clsUserData.IsExist(PersonID);
         }
         private bool _AddNewUser()
         {
