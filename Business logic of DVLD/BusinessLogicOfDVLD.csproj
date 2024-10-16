@@ -7,8 +7,8 @@
     <ProjectGuid>{D676B33B-E76D-416B-B2B0-EF3AD724A4E5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BusinessLogicOfDVLV</RootNamespace>
-    <AssemblyName>BusinessLogicOfDVLV</AssemblyName>
+    <RootNamespace>BusinessLogicOfDVLD</RootNamespace>
+    <AssemblyName>BusinessLogicOfDVLD</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

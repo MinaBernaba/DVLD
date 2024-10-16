@@ -294,12 +294,6 @@
     <None Include="Resources\Next 32.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business logic of DVLV\BusinessLogicOfDVLD.csproj">
-      <Project>{d676b33b-e76d-416b-b2b0-ef3ad724a4e5}</Project>
-      <Name>BusinessLogicOfDVLD</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Add New User 72.png" />
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +322,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\sign_out 32 -2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business logic of DVLD\BusinessLogicOfDVLD.csproj">
+      <Project>{d676b33b-e76d-416b-b2b0-ef3ad724a4e5}</Project>
+      <Name>BusinessLogicOfDVLD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

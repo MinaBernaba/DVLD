@@ -28,9 +28,7 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Users.frmUserInfo.re
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\DVLD.exe.config
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\DVLD.exe
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\DVLD.pdb
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\BusinessLogicOfDVLV.dll
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\DataAccessOfDVLD.dll
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\BusinessLogicOfDVLV.pdb
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\DataAccessOfDVLD.pdb
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.csproj.AssemblyReference.cache
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.frmMain.resources
@@ -52,3 +50,5 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.csproj.CoreComp
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.pdb
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\BusinessLogicOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\bin\Debug\BusinessLogicOfDVLD.pdb

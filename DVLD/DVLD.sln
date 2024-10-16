@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DVLD", "DVLD.csproj", "{2C1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessOfDVLD", "..\Data access layer of DVLD\DataAccessOfDVLD.csproj", "{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicOfDVLD", "..\Business logic of DVLV\BusinessLogicOfDVLD.csproj", "{D676B33B-E76D-416B-B2B0-EF3AD724A4E5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLogicOfDVLD", "..\Business logic of DVLD\BusinessLogicOfDVLD.csproj", "{D676B33B-E76D-416B-B2B0-EF3AD724A4E5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

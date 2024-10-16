@@ -65,10 +65,6 @@ namespace BusinessLogicOfDVLD
             return new clsUser(UserID, PersonID, UserName, Password, IsActive);
             else return null;
         }
-        public static bool DeleteUser(int UserID)
-        {
-            return clsUserData.DeleteUser(UserID);
-        }
         public static bool IsUserIDExist(int UserID)
         {
             return clsUserData.IsExist(UserID);
@@ -111,6 +107,10 @@ namespace BusinessLogicOfDVLD
                     }
             }
             return false;
+        }
+        public static bool DeleteUser(int UserID)
+        {
+            return clsUserData.DeleteUser(UserID);
         }
         public static DataTable GetAllUsers()
         {
