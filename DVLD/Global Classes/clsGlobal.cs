@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLogicOfDVLD;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace DVLD.Classes
 {
     public class clsGlobal
     {
+        public static clsUser CurrentUser;
         public static bool RememberMe(string Username , string Password)
         {
             try

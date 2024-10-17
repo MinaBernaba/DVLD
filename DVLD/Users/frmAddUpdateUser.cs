@@ -14,11 +14,10 @@ namespace DVLD.Users
 {
     public partial class frmAddUpdateUser : Form
     {
-
         private clsUser _User = new clsUser();
         private int _UserID;
         enum enMode {AddNew , Update}
-        enMode Mode = enMode.AddNew;
+        enMode Mode;
         public frmAddUpdateUser()
         {
             InitializeComponent();
@@ -55,7 +54,6 @@ namespace DVLD.Users
                         {
                             MessageBox.Show("No User with ID = " + _User, "User Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Close();
-
                             return;
                         }
                         ctrlPersonCardWithFilter.LoadPersonInfo(_User.PersonID);

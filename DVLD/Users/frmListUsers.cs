@@ -36,13 +36,13 @@ namespace DVLD.Users
                 dgvUsers.Columns[0].HeaderText = "User ID";
                 dgvUsers.Columns[0].Width = 110;
                 dgvUsers.Columns[1].HeaderText = "Person ID";
-                dgvUsers.Columns[1].Width = 120;
+                dgvUsers.Columns[1].Width = 130;
                 dgvUsers.Columns[2].HeaderText = "Full Name";
                 dgvUsers.Columns[2].Width = 450;
                 dgvUsers.Columns[3].HeaderText = "User Name";
                 dgvUsers.Columns[3].Width = 200;
                 dgvUsers.Columns[4].HeaderText = "Is Active";
-                dgvUsers.Columns[4].Width = 110;
+                dgvUsers.Columns[4].Width = 100;
             }
         }
 

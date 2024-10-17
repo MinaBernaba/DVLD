@@ -34,6 +34,7 @@ namespace DVLD.Login_Screen
                 {
                     if (chkRememberMe.Checked) clsGlobal.RememberMe(User.UserName, User.Password);
                     else clsGlobal.RememberMe("", "");
+                    clsGlobal.CurrentUser = User;
                     this.Tag = User.UserID;
                     this.Close();
                 }
@@ -46,6 +47,8 @@ namespace DVLD.Login_Screen
             }
             else
             {
+                txtUsername.Text = string.Empty;
+                txtPassword.Text = string.Empty;
                 txtUsername.Focus();
                 MessageBox.Show("Invalid Username/Password!", "Wrong Credentials",
                 MessageBoxButtons.OK, MessageBoxIcon.Error);

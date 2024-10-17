@@ -43,3 +43,12 @@ C:\Users\AIO\source\repos\DVLD Solution\Business logic of DVLD\obj\Debug\Busines
 C:\Users\AIO\source\repos\DVLD Solution\Business logic of DVLD\obj\Debug\Business.588F0C1F.Up2Date
 C:\Users\AIO\source\repos\DVLD Solution\Business logic of DVLD\obj\Debug\BusinessLogicOfDVLD.dll
 C:\Users\AIO\source\repos\DVLD Solution\Business logic of DVLD\obj\Debug\BusinessLogicOfDVLD.pdb
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\bin\Debug\BusinessLogicOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\bin\Debug\BusinessLogicOfDVLD.pdb
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\bin\Debug\DataAccessOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\bin\Debug\DataAccessOfDVLD.pdb
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\obj\Debug\BusinessLogicOfDVLD.csproj.AssemblyReference.cache
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\obj\Debug\BusinessLogicOfDVLD.csproj.CoreCompileInputs.cache
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\obj\Debug\Business.588F0C1F.Up2Date
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\obj\Debug\BusinessLogicOfDVLD.dll
+C:\Users\AIO\source\repos\DVLD-main\DVLD\Business logic of DVLD\obj\Debug\BusinessLogicOfDVLD.pdb

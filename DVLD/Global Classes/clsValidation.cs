@@ -38,11 +38,5 @@ namespace DVLD.Classes
             return (ValidateInteger(Number) || ValidateFloat(Number));
         }
 
-
-
-
-
-
-
     }
 }

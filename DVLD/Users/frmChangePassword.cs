@@ -99,7 +99,7 @@ namespace DVLD.Users
                 string UserName = string.Empty , Password = string.Empty ;
                 if (clsGlobal.GetStoredCredential(ref UserName, ref Password))
                 {
-                    if (UserName == _User.UserName) clsGlobal.RememberMe(_User.UserName, _User.Password);
+                    if (UserName.ToLower() == _User.UserName.ToLower()) clsGlobal.RememberMe(_User.UserName, _User.Password);
                 }
             }
             else MessageBox.Show("Password change failed", "Failed",
