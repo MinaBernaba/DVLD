@@ -10,9 +10,6 @@ namespace DataAccessDVLD
 {
     public class clsApplicationTypeData
     {
-        /*  
-         string ApplicationTypeTitle ,decimal ApplicationFees, byte ApplicationTypeID
-         */
         public static DataTable GetAllApplicationTypes()
         {
             DataTable dt = new DataTable();

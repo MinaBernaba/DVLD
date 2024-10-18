@@ -55,11 +55,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 28.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(20, 9);
+            this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(414, 54);
+            this.label1.Size = new System.Drawing.Size(531, 54);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Update Application";
+            this.label1.Text = "Update Application Type";
             // 
             // label2
             // 
@@ -144,7 +144,7 @@
             this.txtApplicationTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApplicationTitle.Location = new System.Drawing.Point(149, 150);
             this.txtApplicationTitle.Name = "txtApplicationTitle";
-            this.txtApplicationTitle.Size = new System.Drawing.Size(277, 30);
+            this.txtApplicationTitle.Size = new System.Drawing.Size(382, 30);
             this.txtApplicationTitle.TabIndex = 138;
             this.txtApplicationTitle.Validating += new System.ComponentModel.CancelEventHandler(this.txtApplication_Validating);
             // 
@@ -153,8 +153,9 @@
             this.txtApplicationFees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApplicationFees.Location = new System.Drawing.Point(149, 199);
             this.txtApplicationFees.Name = "txtApplicationFees";
-            this.txtApplicationFees.Size = new System.Drawing.Size(277, 30);
+            this.txtApplicationFees.Size = new System.Drawing.Size(382, 30);
             this.txtApplicationFees.TabIndex = 139;
+            this.txtApplicationFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApplicationFees_KeyPress);
             this.txtApplicationFees.Validating += new System.ComponentModel.CancelEventHandler(this.txtApplication_Validating);
             // 
             // btnSave
@@ -163,7 +164,7 @@
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSave.Image = global::DVLD.Properties.Resources.Save_32;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(166, 269);
+            this.btnSave.Location = new System.Drawing.Point(286, 276);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(128, 48);
             this.btnSave.TabIndex = 141;
@@ -177,7 +178,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(300, 269);
+            this.btnClose.Location = new System.Drawing.Point(420, 276);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(128, 48);
             this.btnClose.TabIndex = 140;
@@ -191,10 +192,12 @@
             // 
             // frmEditApplicationType
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(455, 336);
+            this.CancelButton = this.btnClose;
+            this.ClientSize = new System.Drawing.Size(560, 336);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtApplicationFees);

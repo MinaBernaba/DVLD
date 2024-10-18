@@ -42,5 +42,10 @@ namespace DVLD.Applications.Application_Types
             frm.ShowDialog();
             _Refresh();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -60,10 +60,14 @@ namespace DVLD.Applications.Application_Types
             }
             else errorProvider.SetError(textBox, null);
         }
-
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+        private void txtApplicationFees_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = (!char.IsNumber(e.KeyChar) && !char.IsControl(e.KeyChar) && 
+                !(e.KeyChar == '.' && !txtApplicationFees.Text.Contains('.')));
         }
     }
 }

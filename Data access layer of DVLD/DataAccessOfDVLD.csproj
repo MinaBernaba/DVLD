@@ -7,7 +7,7 @@
     <ProjectGuid>{BA3EAB64-B096-44E9-95DA-CEDADEAB2BF8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DVLD</RootNamespace>
+    <RootNamespace>DataAccessDVLD</RootNamespace>
     <AssemblyName>DataAccessOfDVLD</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsApplicationTypeData.cs" />
+    <Compile Include="clsTestTypesData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="clsCountryData.cs" />
     <Compile Include="clsPeopleData.cs" />

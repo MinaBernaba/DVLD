@@ -79,5 +79,9 @@ C:\Users\AIO\source\repos\DVLD-main\DVLD\DVLD\obj\Debug\DVLD.csproj.CoreCompileI
 C:\Users\AIO\source\repos\DVLD-main\DVLD\DVLD\obj\Debug\DVLD.csproj.Up2Date
 C:\Users\AIO\source\repos\DVLD-main\DVLD\DVLD\obj\Debug\DVLD.exe
 C:\Users\AIO\source\repos\DVLD-main\DVLD\DVLD\obj\Debug\DVLD.pdb
-C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmListApplicationTypes.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmEditApplicationType.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmEditApplicationType.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmListApplicationTypes.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Application_Types.frmListApplicationTypes.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.Test_Types.frmEditTestType.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.Test_Types.frmListTestTypes.resources
