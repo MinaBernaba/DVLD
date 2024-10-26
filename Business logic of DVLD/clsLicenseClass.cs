@@ -24,7 +24,7 @@ namespace BusinessLogicOfDVLD
 
         public clsLicenseClass()
         {
-            LicenseClassID = -1;
+            LicenseClassID = 0;
             ClassName = string.Empty;
             ClassDescription = string.Empty;
             MinimumAllowedAge = 0;

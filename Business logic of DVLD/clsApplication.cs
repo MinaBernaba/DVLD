@@ -12,12 +12,12 @@ namespace BusinessLogicOfDVLD
     {
        public enum enMode { AddNew, Update }
        public enMode Mode = enMode.AddNew;
-       //public enum enApplicationType
-       // {
-       //     NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
-       //     ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7
-       // };
-       public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
+        public enum enApplicationType
+        {
+            NewDrivingLicense = 1, RenewDrivingLicense = 2, ReplaceLostDrivingLicense = 3,
+            ReplaceDamagedDrivingLicense = 4, ReleaseDetainedDrivingLicsense = 5, NewInternationalLicense = 6, RetakeTest = 7
+        };
+        public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 };
        public int ApplicationID { get; set; }
        public int ApplicantPersonID { get; set; }
        public clsPerson PersonInfo { get; set; }
@@ -91,9 +91,9 @@ namespace BusinessLogicOfDVLD
         }
        private bool _AddNewApplication()
         {
-            this.ApplicantPersonID = clsApplicationData.AddNewApplication(this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
+            this.ApplicationID = clsApplicationData.AddNewApplication(this.ApplicantPersonID, this.ApplicationDate, this.ApplicationTypeID,
           Convert.ToByte(this.ApplicationStatus), this.LastStatusDate, this.PaidFees, this.CreatedByUserID);
-            return this.ApplicantPersonID != -1;
+            return this.ApplicationID != -1;
         }
        private bool _UpdateApplication()
         {

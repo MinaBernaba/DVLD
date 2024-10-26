@@ -43,6 +43,8 @@
   <ItemGroup>
     <Compile Include="clsApplicationData.cs" />
     <Compile Include="clsApplicationTypeData.cs" />
+    <Compile Include="clsDriverData.cs" />
+    <Compile Include="clsLicenseData.cs" />
     <Compile Include="clsLocalDrivingLicenseApplicationData.cs" />
     <Compile Include="clsTestTypesData.cs" />
     <Compile Include="clsUserData.cs" />

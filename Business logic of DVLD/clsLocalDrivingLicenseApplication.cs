@@ -15,16 +15,16 @@ namespace BusinessLogicOfDVLD
         public enum enMode { AddNew, Update};
         enMode Mode = enMode.AddNew;
         public int LocalDrivingLicenseApplicationID {  get; set; }
-        public int LicenseClassID { get; set; }
+        public byte LicenseClassID { get; set; }
         public clsLicenseClass LicenseClassInfo { get; set; }
         public clsLocalDrivingLicenseApplication()
         {
             this.LocalDrivingLicenseApplicationID = -1;
-            this.LicenseClassID = -1;
+            this.LicenseClassID = 0;
             Mode = enMode.AddNew;
         }
         private clsLocalDrivingLicenseApplication(int LocalDrivingLicenseApplicationID,
-            int LicenseClassID , int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate,
+            byte LicenseClassID , int ApplicationID, int ApplicantPersonID, DateTime ApplicationDate,
             byte ApplicationTypeID, enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
             decimal PaidFees, int CreatedByUserID)
         {
@@ -44,9 +44,9 @@ namespace BusinessLogicOfDVLD
         }
         public static clsLocalDrivingLicenseApplication FindByLocalDrivingLicenseApplicationID(int LocalDrivingLicenseApplicationID)
         {
-            int LicenseClassID = -1, ApplicationID = -1;
+            byte LicenseClassID = 0; int ApplicationID = -1;
             if (clsLocalDrivingLicenseApplicationData.Find(LocalDrivingLicenseApplicationID,
-                ref LicenseClassID, ref ApplicationID))
+                ref ApplicationID, ref LicenseClassID))
             {
                 clsApplication Application = FindApplication(ApplicationID);
                 return new clsLocalDrivingLicenseApplication(LocalDrivingLicenseApplicationID,
@@ -59,7 +59,7 @@ namespace BusinessLogicOfDVLD
         }
         public static clsLocalDrivingLicenseApplication FindByApplicationID(int ApplicationID)
         {
-            int LocalDrivingLicenseApplicationID = -1, LicenseClassID = -1;
+            int LocalDrivingLicenseApplicationID = -1; byte LicenseClassID = 0;
             if (clsLocalDrivingLicenseApplicationData.Find(ref LocalDrivingLicenseApplicationID,
                 ApplicationID, ref LicenseClassID))
             {
@@ -125,6 +125,13 @@ namespace BusinessLogicOfDVLD
         {
             return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
         }
-
+        public static int DoesApplicantHaveAnActiveLocalApplicationforTheSelectedLicenseClass(int ApplicantPersonID,enApplicationType ApplicationType, byte LicenseClassID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesApplicantHaveAnActiveLocalApplication(ApplicantPersonID,Convert.ToByte(ApplicationType) , LicenseClassID);
+        }
+        public static bool DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass (int ApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(ApplicationID);
+        }
     }
 }
