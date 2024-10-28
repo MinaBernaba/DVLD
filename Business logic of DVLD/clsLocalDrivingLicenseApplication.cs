@@ -125,13 +125,6 @@ namespace BusinessLogicOfDVLD
         {
             return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
         }
-        public static int DoesApplicantHaveAnActiveLocalApplicationforTheSelectedLicenseClass(int ApplicantPersonID,enApplicationType ApplicationType, byte LicenseClassID)
-        {
-            return clsLocalDrivingLicenseApplicationData.DoesApplicantHaveAnActiveLocalApplication(ApplicantPersonID,Convert.ToByte(ApplicationType) , LicenseClassID);
-        }
-        public static bool DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass (int ApplicationID)
-        {
-            return clsLocalDrivingLicenseApplicationData.DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(ApplicationID);
-        }
+       
     }
 }

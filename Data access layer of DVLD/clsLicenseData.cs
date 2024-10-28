@@ -178,5 +178,28 @@ namespace DataAccessDVLD
             finally { conn.Close(); }
             return IsExist;
         }
+        public static bool DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass
+            (int ApplicantPersonID, byte LicenseClassID)
+        {
+            bool IsFound = false;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = "SELECT * from Licenses JOIN Applications ON Licenses.ApplicationID = Applications.ApplicationID " +
+                "WHERE Applications.ApplicantPersonID = @ApplicantPersonID " +
+                "AND Licenses.LicenseClass = @LicenseClassID " +
+                "AND IsActive = 1;";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            cmd.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            cmd.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            try
+            {
+                conn.Open();
+                object reader = cmd.ExecuteScalar();
+                if (reader != null) IsFound = true;
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return IsFound;
+        }
     } 
 }

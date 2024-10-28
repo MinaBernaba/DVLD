@@ -158,6 +158,53 @@ namespace DataAccessDVLD
             finally { conn.Close(); }
             return IsFound;
         }
+        public static int DoesApplicantHaveAnActiveLocalApplication
+           (int ApplicantPersonID, byte ApplicationTypeID, byte LicenseClassID)
+        {
+            int ActiveApplication = -1;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = "SELECT Applications.ApplicationID FROM LocalDrivingLicenseApplications JOIN Applications " +
+                "ON Applications.ApplicationID = LocalDrivingLicenseApplications.ApplicationID " +
+                "WHERE Applications.ApplicantPersonID = @ApplicantPersonID " +
+                "AND LocalDrivingLicenseApplications.LicenseClassID = @LicenseClassID " +
+                "And Applications.ApplicationTypeID = @ApplicationTypeID " +
+                "And Applications.ApplicationStatus = 1;";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+
+            cmd.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            cmd.Parameters.AddWithValue("@ApplicationTypeID", ApplicationTypeID);
+            cmd.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            try
+            {
+                conn.Open();
+                object reader = cmd.ExecuteScalar();
+                if (reader != null) int.TryParse(reader.ToString(), out ActiveApplication);
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return ActiveApplication;
+        }
+        public static bool UpdateStatus(int ApplicationID, byte ApplicationStatus)
+        {
+            int AffectedRows = 0;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = "UPDATE [dbo].[Applications]" +
+                " SET [ApplicationStatus] = @ApplicationStatus, " +
+                "[LastStatusDate] = @LastStatusDate " +
+                " WHERE ApplicationID = @ApplicationID";
+            SqlCommand cmd = new SqlCommand(Query, conn);
+            cmd.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+            cmd.Parameters.AddWithValue("@ApplicationStatus", ApplicationStatus);
+            cmd.Parameters.AddWithValue("@LastStatusDate", DateTime.Now);
+            try
+            {
+                conn.Open();
+                AffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return AffectedRows > 0;
+        }
     }
 
 }

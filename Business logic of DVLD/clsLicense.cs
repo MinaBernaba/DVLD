@@ -144,6 +144,10 @@ namespace BusinessLogicOfDVLD
         {
             return clsLicenseData.GetAllLicenses();
         }
+        public static bool DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(int ApplicantPersonID, byte LicenseClassID)
+        {
+            return clsLicenseData.DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(ApplicantPersonID, LicenseClassID);
+        }
 
     }
 }

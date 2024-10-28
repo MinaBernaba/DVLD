@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -135,6 +136,26 @@ namespace BusinessLogicOfDVLD
        public static DataTable GetAllApplications()
         {
             return (clsApplicationData.GetAllApplications());
+        }
+        public static int DoesApplicantHaveAnActiveLocalApplicationforTheSelectedLicenseClass(int ApplicantPersonID, enApplicationType ApplicationType, byte LicenseClassID)
+        {
+            return clsApplicationData.DoesApplicantHaveAnActiveLocalApplication(ApplicantPersonID, Convert.ToByte(ApplicationType), LicenseClassID);
+        }
+        public static bool CancelApplication(int ApplicationID)
+        {
+            return clsApplicationData.UpdateStatus(ApplicationID, Convert.ToByte(enApplicationStatus.Cancelled));
+        }
+        public bool CancelApplication()
+        {
+            return clsApplicationData.UpdateStatus(this.ApplicationID, Convert.ToByte(enApplicationStatus.Cancelled));
+        }
+        public static bool SetComplete(int ApplicationID)
+        {
+            return clsApplicationData.UpdateStatus(ApplicationID, Convert.ToByte(enApplicationStatus.Completed));
+        }
+        public bool SetComplete()
+        {
+            return clsApplicationData.UpdateStatus(this.ApplicationID, Convert.ToByte(enApplicationStatus.Completed));
         }
     }
 }

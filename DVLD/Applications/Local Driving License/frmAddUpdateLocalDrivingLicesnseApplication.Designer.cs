@@ -31,6 +31,7 @@
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tcPersonInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
+            this.ctrlPersonCardWithFilter = new DVLD.Controls.ctrlPersonCardWithFilter();
             this.tcApplication = new System.Windows.Forms.TabPage();
             this.cbLicenseClasses = new System.Windows.Forms.ComboBox();
             this.lblShowingAppDate = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlPersonCardWithFilter = new DVLD.Controls.ctrlPersonCardWithFilter();
             this.tabControl.SuspendLayout();
             this.tcPersonInfo.SuspendLayout();
             this.tcApplication.SuspendLayout();
@@ -98,6 +98,17 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // ctrlPersonCardWithFilter
+            // 
+            this.ctrlPersonCardWithFilter.BackColor = System.Drawing.Color.White;
+            this.ctrlPersonCardWithFilter.EnableFilter = true;
+            this.ctrlPersonCardWithFilter.Location = new System.Drawing.Point(7, 5);
+            this.ctrlPersonCardWithFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ctrlPersonCardWithFilter.Name = "ctrlPersonCardWithFilter";
+            this.ctrlPersonCardWithFilter.ShowAddNew = true;
+            this.ctrlPersonCardWithFilter.Size = new System.Drawing.Size(848, 406);
+            this.ctrlPersonCardWithFilter.TabIndex = 0;
+            // 
             // tcApplication
             // 
             this.tcApplication.Controls.Add(this.cbLicenseClasses);
@@ -125,6 +136,7 @@
             // 
             // cbLicenseClasses
             // 
+            this.cbLicenseClasses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbLicenseClasses.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbLicenseClasses.FormattingEnabled = true;
             this.cbLicenseClasses.Location = new System.Drawing.Point(305, 166);
@@ -308,17 +320,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // ctrlPersonCardWithFilter
-            // 
-            this.ctrlPersonCardWithFilter.BackColor = System.Drawing.Color.White;
-            this.ctrlPersonCardWithFilter.EnableFilter = true;
-            this.ctrlPersonCardWithFilter.Location = new System.Drawing.Point(7, 5);
-            this.ctrlPersonCardWithFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.ctrlPersonCardWithFilter.Name = "ctrlPersonCardWithFilter";
-            this.ctrlPersonCardWithFilter.ShowAddNew = true;
-            this.ctrlPersonCardWithFilter.Size = new System.Drawing.Size(848, 406);
-            this.ctrlPersonCardWithFilter.TabIndex = 0;
             // 
             // frmAddUpdateLocalDrivingLicesnseApplication
             // 

@@ -98,7 +98,7 @@ namespace DVLD.Controls
         }
         private void ctrlPersonCardWithFilter_Load(object sender, EventArgs e)
         {
-            cbFindBy.SelectedItem = "Person ID";
+            cbFindBy.SelectedItem = "National Number";
             txtFilter.Focus();
         }
         private void cbFindBy_SelectedIndexChanged(object sender, EventArgs e)

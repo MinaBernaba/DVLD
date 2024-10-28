@@ -39,11 +39,11 @@ namespace DVLD.Applications.Local_Driving_License
         }
         private void _Reset()
         {
+            lblShowingAppDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             _FillcbLicenseClasses();
             cbLicenseClasses.SelectedIndex = 2;
-            lblApplicationFees.Text = 15.ToString();
+            lblApplicationFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewDrivingLicense).ApplicationFees.ToString();
             lblCreatedByUserName.Text = clsGlobal.CurrentUser.UserName;
-            lblShowingAppDate.Text = DateTime.Now.ToString("dd/MM/yyyy");
             switch (Mode)
             {
                 case enMode.AddNew:
@@ -105,22 +105,32 @@ namespace DVLD.Applications.Local_Driving_License
         private void btnSave_Click(object sender, EventArgs e)
         {
             byte LicenseClassID = (byte)clsLicenseClass.Find(cbLicenseClasses.Text).LicenseClassID;
-            int ActiveLicense = clsLocalDrivingLicenseApplication.DoesApplicantHaveAnActiveLocalApplicationforTheSelectedLicenseClass(
+
+            // Check if the applicant has an active application
+
+            int ActiveApplicationID = clsApplication.DoesApplicantHaveAnActiveLocalApplicationforTheSelectedLicenseClass(
                 ctrlPersonCardWithFilter.PeronID,
                 clsLocalDrivingLicenseApplication.enApplicationType.NewDrivingLicense
                 , LicenseClassID);
-            if (ActiveLicense != -1)
+
+
+            if (ActiveApplicationID != -1)
             {
                 MessageBox.Show("Choose another license class, The selected applicant already has" +
-                    " an active application for the selected license class with ID = " + _LDLA.ApplicationID 
-                    ,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    " an active application for the selected license class with ID = " + ActiveApplicationID
+                    , "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            if (clsLocalDrivingLicenseApplication.DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(
-                _LDLA.ApplicationID))
+
+
+
+            // Check if the applicant has already a license
+
+            if (clsLicense.DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(
+                ctrlPersonCardWithFilter.PeronID, LicenseClassID))
             {
-                MessageBox.Show("The applicant already has a license with the same applied driving" +
-                    " class, Choose different driving class!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The applicant already has a license with the same applied license" +
+                    " class, Choose different license class!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -128,16 +138,21 @@ namespace DVLD.Applications.Local_Driving_License
             {
                 case enMode.AddNew:
                     {
-                        _LDLA.LicenseClassID = (byte)(cbLicenseClasses.SelectedIndex + 1);
-                        _LDLA.ApplicantPersonID = ctrlPersonCardWithFilter.SelectedPerson.PersonID;
+                        _LDLA.LicenseClassID = LicenseClassID;
+
+                        _LDLA.ApplicantPersonID = ctrlPersonCardWithFilter.PeronID;
                         _LDLA.ApplicationDate = DateTime.Now;
                         _LDLA.ApplicationTypeID = 1;
-                        _LDLA.ApplicationStatus = clsLocalDrivingLicenseApplication.enApplicationStatus.New;
+                        _LDLA.ApplicationStatus = clsApplication.enApplicationStatus.New;
                         _LDLA.LastStatusDate = DateTime.Now;
-                        _LDLA.PaidFees = 15;
+                        _LDLA.PaidFees =Convert.ToDecimal(lblApplicationFees);
                         _LDLA.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                         if (_LDLA.Save())
                         {
+                            this.Text = "Update Local Driving Licesnse Application";
+                            lblTitle.Text = "Update Local Driving Licesnse Application";
+                            Mode = enMode.Update;
+
                             lblShowingAppID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
                             MessageBox.Show($"Local Driving License Application added successfully with ID : {_LDLA.LocalDrivingLicenseApplicationID} !",
                                 "Added successfully", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -147,7 +162,8 @@ namespace DVLD.Applications.Local_Driving_License
                     }
                 case enMode.Update:
                     {
-                        _LDLA.LicenseClassID = (byte)(cbLicenseClasses.SelectedIndex + 1);
+
+                        _LDLA.LicenseClassID = LicenseClassID;
                         if (_LDLA.Save())
                         {
                             MessageBox.Show($"Local Driving License Application Updated successfully !",
@@ -163,5 +179,6 @@ namespace DVLD.Applications.Local_Driving_License
         {
             this.Close();
         }
+
     }
 }
