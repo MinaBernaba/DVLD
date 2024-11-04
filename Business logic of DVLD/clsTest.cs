@@ -12,13 +12,13 @@ namespace BusinessLogicOfDVLD
     {
         enum enMode { AddNew, Update }
         enMode Mode = enMode.AddNew;
-        int TestID { get; set; }
-        int TestAppointmentID { get; set; }
-        bool TestResult { get; set; }
-        string Notes { get; set; }
-        int CreatedByUserID { get; set; }
-        clsTestAppointment TestAppointmentInfo { get; set; }
-        clsUser UserInfo { get; set; }
+        public int TestID { get; set; }
+        public int TestAppointmentID { get; set; }
+        public bool TestResult { get; set; }
+        public string Notes { get; set; }
+        public int CreatedByUserID { get; set; }
+        public clsTestAppointment TestAppointmentInfo { get; set; }
+        public clsUser UserInfo { get; set; }
         public clsTest()
         {
             TestID = -1;

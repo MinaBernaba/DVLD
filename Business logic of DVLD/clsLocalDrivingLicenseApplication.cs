@@ -30,8 +30,10 @@ namespace BusinessLogicOfDVLD
         {
             this.LocalDrivingLicenseApplicationID = LocalDrivingLicenseApplicationID;
             this.LicenseClassID = LicenseClassID;
+            this.LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
             this.ApplicationID = ApplicationID;
             this.ApplicantPersonID = ApplicantPersonID;
+            this.PersonInfo = clsPerson.Find(ApplicantPersonID);
             this.ApplicationDate = ApplicationDate;
             this.ApplicationTypeID = ApplicationTypeID;
             this.ApplicationTypeInfo = clsApplicationType.Find(ApplicationTypeID);
@@ -125,6 +127,41 @@ namespace BusinessLogicOfDVLD
         {
             return clsLocalDrivingLicenseApplicationData.GetAllLocalDrivingLicenseApplications();
         }
-       
+        public static bool IsLocalDrivingLicenseApplicationExist(int LocalDrivingLicenseApplicationID)
+        {
+            return clsLocalDrivingLicenseApplicationData.IsExist(LocalDrivingLicenseApplicationID);
+        }
+        public int NumberOfPassedTests()
+        {
+            return clsLocalDrivingLicenseApplicationData.PassedTests(this.LocalDrivingLicenseApplicationID);
+        }
+        public bool DoesApplicantHaveAnActiveTestAppointment()
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesApplicationHaveAnActiveAppointment(this.LocalDrivingLicenseApplicationID);
+        }
+        public DataTable GetTestAppointmentsInfoAboutCertainTestType(byte TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.GetTestAppointmentsInfoAboutCertainTestType(this.LocalDrivingLicenseApplicationID,TestTypeID);
+        }
+        public bool DoesApplicationHaveAnAppointmentBeforeOnThisTest(byte TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesApplicationHaveAnAppointmentBeforeOnThisTest(this.LocalDrivingLicenseApplicationID,TestTypeID);
+        }
+        public static int TrailsCount(int LocalDrivingLicenseApplicationID , byte TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.TrialsCount(LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+        public int TrailsCount(byte TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.TrialsCount(this.LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+        public bool DoesApplicatPassThisTest(byte TestTypeID)
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesApplicatPassThisTest(this.LocalDrivingLicenseApplicationID, TestTypeID);
+        }
+        public bool DoesLicenseIssuedForThisApplication()
+        {
+            return clsLocalDrivingLicenseApplicationData.DoesLicenseIssuedForThisApplication(this.LocalDrivingLicenseApplicationID);
+        }
     }
 }

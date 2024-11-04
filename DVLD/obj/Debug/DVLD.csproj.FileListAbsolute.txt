@@ -149,3 +149,12 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD Solution\obj\Debug\DVLD.exe
 C:\Users\AIO\source\repos\DVLD Solution\DVLD Solution\obj\Debug\DVLD.pdb
 C:\Users\AIO\source\repos\DVLD Solution\DVLD Solution\obj\Debug\DVLD.Applications.Local_Driving_License.frmAddUpdateLocalDrivingLicesnseApplication.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Local_Driving_License.frmAddUpdateLocalDrivingLicesnseApplication.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Local_Driving_License.frmListLocalDrivingLicesnseApplications.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Controls.ctrlApplicationBasicInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Local_Driving_License.ctrlLocalDrivingLicenseApplicationInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Local_Driving_License.frmLocalDrivingLicenseApplicationInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.frmListTestAppointments.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.Controls.ctrlScheduleTestAppointment.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.frmScheduleTest.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.Controls.ctrlTakeTest.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.frmTakeTest.resources

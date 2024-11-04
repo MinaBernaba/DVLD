@@ -162,5 +162,21 @@ namespace DataAccessDVLD
             finally { conn.Close(); }
             return IsExist;
         } 
+        public static bool LockTheTestAppointment(int TestAppointmentID)
+        {
+            int AffectedRows = 0;
+            SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
+            string Query = " UPDATE TestAppointments  SET IsLocked = 1  WHERE TestAppointmentID = @TestAppointmentID;";
+            SqlCommand cmd = new SqlCommand(Query,conn);
+            cmd.Parameters.AddWithValue("@TestAppointmentID",TestAppointmentID);
+            try
+            {
+                conn.Open();
+                AffectedRows = cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex) { }
+            finally { conn.Close(); }
+            return AffectedRows > 0;
+        }
     }
 }

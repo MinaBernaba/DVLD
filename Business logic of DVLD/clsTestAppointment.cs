@@ -12,18 +12,18 @@ namespace BusinessLogicOfDVLD
     {
         enum enMode { AddNew , Update}
         enMode Mode = enMode.AddNew;
-        int TestAppointmentID { get; set; }
-        int TestTypeID { get; set; }
-        int LocalDrivingLicenseApplicationID { get; set; }
-        DateTime AppointmentDate { get; set; }
-        decimal PaidFees { get; set; }
-        int CreatedByUserID { get; set; }
-        bool IsLocked { get; set; }
-        int RetakeTestApplicationID { get; set; }
-        clsTestType TestTypeInfo { get; set; }
-        clsLocalDrivingLicenseApplication LDLA_Info { get; set; }
-        clsUser UserInfo { get; set; }
-        clsApplication RetakeTestApplication { get; set; }
+        public int TestAppointmentID { get; set; }
+        public int TestTypeID { get; set; }
+        public int LocalDrivingLicenseApplicationID { get; set; }
+        public DateTime AppointmentDate { get; set; }
+        public decimal PaidFees { get; set; }
+        public int CreatedByUserID { get; set; }
+        public bool IsLocked { get; set; }
+        public int RetakeTestApplicationID { get; set; }
+        public clsTestType TestTypeInfo { get; set; }
+        public clsLocalDrivingLicenseApplication LDLA_Info { get; set; }
+        public clsUser UserInfo { get; set; }
+        public clsApplication RetakeTestApplication { get; set; }
         public clsTestAppointment()
         {
             TestAppointmentID = -1;
@@ -114,6 +114,10 @@ namespace BusinessLogicOfDVLD
         public static DataTable GetAllTestAppointments()
         {
             return clsTestAppointmentData.GetAllTestAppointments();
+        }
+        public bool LockTestAppointment()
+        {
+            return clsTestAppointmentData.LockTheTestAppointment(this.TestAppointmentID);
         }
     }
 }

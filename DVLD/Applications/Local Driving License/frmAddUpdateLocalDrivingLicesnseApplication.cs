@@ -106,7 +106,7 @@ namespace DVLD.Applications.Local_Driving_License
         {
             byte LicenseClassID = (byte)clsLicenseClass.Find(cbLicenseClasses.Text).LicenseClassID;
 
-            // Check if the applicant has an active application
+            // Check if the applicant has an active Application
 
             int ActiveApplicationID = clsApplication.DoesApplicantHaveAnActiveLocalApplicationforTheSelectedLicenseClass(
                 ctrlPersonCardWithFilter.PeronID,
@@ -117,7 +117,7 @@ namespace DVLD.Applications.Local_Driving_License
             if (ActiveApplicationID != -1)
             {
                 MessageBox.Show("Choose another license class, The selected applicant already has" +
-                    " an active application for the selected license class with ID = " + ActiveApplicationID
+                    " an active Application for the selected license class with ID = " + ActiveApplicationID
                     , "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
@@ -145,7 +145,7 @@ namespace DVLD.Applications.Local_Driving_License
                         _LDLA.ApplicationTypeID = 1;
                         _LDLA.ApplicationStatus = clsApplication.enApplicationStatus.New;
                         _LDLA.LastStatusDate = DateTime.Now;
-                        _LDLA.PaidFees =Convert.ToDecimal(lblApplicationFees);
+                        _LDLA.PaidFees =Convert.ToDecimal(lblApplicationFees.Text);
                         _LDLA.CreatedByUserID = clsGlobal.CurrentUser.UserID;
                         if (_LDLA.Save())
                         {
