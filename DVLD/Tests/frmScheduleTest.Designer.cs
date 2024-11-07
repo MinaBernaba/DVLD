@@ -34,11 +34,12 @@
             // 
             // ctrlScheduleTestAppointment
             // 
+            this.ctrlScheduleTestAppointment.BackColor = System.Drawing.Color.White;
             this.ctrlScheduleTestAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlScheduleTestAppointment.Location = new System.Drawing.Point(13, 14);
             this.ctrlScheduleTestAppointment.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.ctrlScheduleTestAppointment.Name = "ctrlScheduleTestAppointment";
-            this.ctrlScheduleTestAppointment.Size = new System.Drawing.Size(565, 704);
+            this.ctrlScheduleTestAppointment.Size = new System.Drawing.Size(565, 751);
             this.ctrlScheduleTestAppointment.TabIndex = 0;
             // 
             // btnClose
@@ -48,7 +49,7 @@
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(429, 675);
+            this.btnClose.Location = new System.Drawing.Point(437, 716);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(137, 36);
             this.btnClose.TabIndex = 169;
@@ -61,7 +62,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(586, 730);
+            this.ClientSize = new System.Drawing.Size(586, 779);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlScheduleTestAppointment);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

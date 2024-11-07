@@ -118,6 +118,10 @@ namespace BusinessLogicOfDVLD
         {
             return clsDetainedLicenseData.GetAllDetainedLicenses();
         }
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
+        }
 
     }
 }

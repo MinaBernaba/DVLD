@@ -19,11 +19,19 @@ namespace DVLD.Tests.Controls
     {
         private enum enMode { AddNew,Update}
         private enMode Mode = enMode.AddNew;
+
+
         private int _LDLA_ID;
         private clsLocalDrivingLicenseApplication _LDLA;
+
+
         private clsApplication RetakeApplication;
+
         private clsTestAppointment TestAppointment;
+
         public clsTestType.enTestType TestType = enTestType.VisionTest;
+
+
         public ctrlScheduleTestAppointment()
         {
             InitializeComponent();
@@ -36,24 +44,24 @@ namespace DVLD.Tests.Controls
                     {
                         TestType = enTestType.VisionTest;
                         pcTitle.Image = Resources.Vision_512;
-                        gbTestType.Text = "Vision Test";
-                        lblTitle.Text = "Vision Test";
+                        gbTestType.Text = "Schedule Vision Test";
+                        lblTitle.Text = "Schedule Vision Test";
                         return;
                     }
                 case 1:
                     {
                         TestType = enTestType.WrittenTest;
                         pcTitle.Image = Resources.Written_Test_512;
-                        gbTestType.Text = "Written Test";
-                        lblTitle.Text = "Written Test";
+                        gbTestType.Text = "Schedule Written Test";
+                        lblTitle.Text = "Schedule Written Test";
                         return;
                     }
                 case 2:
                     {
                         TestType = enTestType.StreetTest;
                         pcTitle.Image = Resources.Street_test_512;
-                        gbTestType.Text = "Street Test";
-                        lblTitle.Text = "Street Test";
+                        gbTestType.Text = "Schedule Street Test";
+                        lblTitle.Text = "Schedule Street Test";
                         return;
                     }
             }
@@ -84,9 +92,22 @@ namespace DVLD.Tests.Controls
                 TestAppointment = clsTestAppointment.Find(TestAppointmentID);
                 Mode = enMode.Update;
             }
+
+
             _LDLA_ID = LDLA_ID;
             _LDLA = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID(_LDLA_ID);
+
+            if (_LDLA == null)
+            {
+                MessageBox.Show("Error: No Local Driving License Application with ID = " + _LDLA_ID.ToString(),
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                btnSave.Enabled = false;
+                return;
+            }
+
             DefineTestType();
+
+
             dtTestDate.MinDate = DateTime.Now;
             lblShowLDLAID.Text = _LDLA.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = _LDLA.LicenseClassInfo.ClassName;

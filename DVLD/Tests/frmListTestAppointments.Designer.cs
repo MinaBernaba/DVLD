@@ -185,7 +185,6 @@
             // ctrlLocalDrivingLicenseApplicationInfo
             // 
             this.ctrlLocalDrivingLicenseApplicationInfo.BackColor = System.Drawing.Color.White;
-            this.ctrlLocalDrivingLicenseApplicationInfo.EnablellShowLicenseInfo = true;
             this.ctrlLocalDrivingLicenseApplicationInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ctrlLocalDrivingLicenseApplicationInfo.Location = new System.Drawing.Point(4, 205);
             this.ctrlLocalDrivingLicenseApplicationInfo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

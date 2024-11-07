@@ -141,6 +141,7 @@ namespace DataAccessDVLD
                 conn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 if (reader.Read()) {
+                    IsFound = true;
                     ApplicationID = (int)reader["ApplicationID"];
                     DriverID = (int)reader["DriverID"];
                     LicenseClass = (int)reader["LicenseClass"];
@@ -200,6 +201,71 @@ namespace DataAccessDVLD
             catch (Exception ex) { }
             finally { conn.Close(); }
             return IsFound;
+        }
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            int LicenseID = -1;
+
+            SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
+
+            string query = @"SELECT        Licenses.LicenseID
+                            FROM Licenses INNER JOIN
+                                                     Drivers ON Licenses.DriverID = Drivers.DriverID
+                            WHERE  
+                             
+                             Licenses.LicenseClass = @LicenseClass 
+                              AND Drivers.PersonID = @PersonID
+                              And IsActive=1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@LicenseClass", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+
+                object result = command.ExecuteScalar();
+
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    LicenseID = insertedID;
+                }
+            }
+
+            catch (Exception ex) {  }
+
+            finally { connection.Close(); }
+            
+            return LicenseID;
+        }
+        public static DataTable GetDriverLicenses(int DriverID)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
+
+            string query = @"SELECT     
+                           Licenses.LicenseID,
+                           ApplicationID,
+		                   LicenseClasses.ClassName, Licenses.IssueDate, 
+		                   Licenses.ExpirationDate, Licenses.IsActive
+                           FROM Licenses INNER JOIN
+                                LicenseClasses ON Licenses.LicenseClass = LicenseClasses.LicenseClassID
+                            where DriverID=@DriverID
+                            Order By IsActive Desc, ExpirationDate Desc";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows) { dt.Load(reader); }
+                reader.Close();
+            }
+            catch (Exception ex) { }
+            finally   { connection.Close(); }
+            return dt;
         }
     } 
 }

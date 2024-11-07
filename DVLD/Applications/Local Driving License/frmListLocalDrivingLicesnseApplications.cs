@@ -1,4 +1,6 @@
 ﻿using BusinessLogicOfDVLD;
+using DVLD.Licenses;
+using DVLD.Licenses.Local_Licenses;
 using DVLD.Tests;
 using DVLD.Tests.Controls;
 using System;
@@ -133,8 +135,12 @@ namespace DVLD.Applications.Local_Driving_License
         }
         private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLDLA.CurrentRow.Cells[0].Value).CancelApplication();
-            _Refresh();
+            if (MessageBox.Show("Are you sure that you want to cancel this application?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            {
+                clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID((int)dgvLDLA.CurrentRow.Cells[0].Value).CancelApplication();
+                _Refresh();
+            }
         }
         private void showApplicationDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -181,6 +187,41 @@ namespace DVLD.Applications.Local_Driving_License
             frmListTestAppointments frm = new frmListTestAppointments((int)dgvLDLA.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
             _Refresh();
+        }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmIssueDriverLicenseFirstTime frm = new frmIssueDriverLicenseFirstTime((int)dgvLDLA.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _Refresh();
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int LicenseID = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID(
+              (int)dgvLDLA.CurrentRow.Cells[0].Value).GetActiveLicenseID();
+
+            if (LicenseID != -1)
+            {
+                frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No License Found!", "No License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
+        private void showPersonLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int LocalDrivingLicenseApplicationID = (int)dgvLDLA.CurrentRow.Cells[0].Value;
+            clsLocalDrivingLicenseApplication localDrivingLicenseApplication = clsLocalDrivingLicenseApplication.FindByLocalDrivingLicenseApplicationID(LocalDrivingLicenseApplicationID);
+
+            frmShowPersonLicenseHistory frm = new frmShowPersonLicenseHistory(localDrivingLicenseApplication.ApplicantPersonID);
+            frm.ShowDialog();
         }
     }
 }

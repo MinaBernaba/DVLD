@@ -147,7 +147,56 @@ namespace DataAccessDVLD
             catch (Exception ex) { }
             finally { conn.Close(); }
             return IsExist;
-        } 
+        }
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
+
+            string query = @"
+            SELECT    InternationalLicenseID, ApplicationID,
+		                IssuedUsingLocalLicenseID , IssueDate, 
+                        ExpirationDate, IsActive
+		    from InternationalLicenses where DriverID=@DriverID
+                order by ExpirationDate desc";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            try {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                    dt.Load(reader);
+                reader.Close();
+            }
+            catch (Exception ex) { }
+            finally{connection.Close(); }
+            return dt;
+        }
+        public static int GetActiveInternationalLicenseIDByDriverID(int DriverID)
+        {
+            int InternationalLicenseID = -1;
+            SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
+            string query = @"  
+                            SELECT Top 1 InternationalLicenseID
+                            FROM InternationalLicenses 
+                            where DriverID=@DriverID and GetDate() between IssueDate and ExpirationDate 
+                            order by ExpirationDate Desc;";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            try
+            {
+                connection.Open();
+                object result = command.ExecuteScalar();
+                if (result != null && int.TryParse(result.ToString(), out int insertedID))
+                {
+                    InternationalLicenseID = insertedID;
+                }
+            }
+            catch (Exception ex) { }
+            finally { connection.Close(); }
+            return InternationalLicenseID;
+        }
+
 
     }
 }

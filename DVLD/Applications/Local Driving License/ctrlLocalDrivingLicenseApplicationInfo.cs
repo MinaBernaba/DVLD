@@ -14,15 +14,14 @@ namespace DVLD.Applications.Local_Driving_License
 {
     public partial class ctrlLocalDrivingLicenseApplicationInfo : UserControl
     {
-        private bool _EnablellShowLicenseInfo = true;
-        public bool EnablellShowLicenseInfo { get { return _EnablellShowLicenseInfo; } 
-            set { _EnablellShowLicenseInfo = value;
-                llShowLicenceInfo.Enabled = _EnablellShowLicenseInfo; 
-            }  }
         private int _LDLAID;
         private clsLocalDrivingLicenseApplication _LDLApp;
-        public clsLocalDrivingLicenseApplication LDLApp { get {  return _LDLApp; } }
-        public int LDLAID { get { return _LDLAID; } }
+        public int LDLAID 
+        { 
+            get { return _LDLAID; }
+        }
+
+
         public ctrlLocalDrivingLicenseApplicationInfo()
         {
             InitializeComponent();
@@ -37,11 +36,21 @@ namespace DVLD.Applications.Local_Driving_License
                     , MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+
+            llShowLicenceInfo.Enabled = _LDLApp.DoesLicenseIssuedForThisApplication();
+
             ctrlApplicationBasicInfo.LoadApplicationInfo(_LDLApp.ApplicationID);
+
             lblLDLA_ID.Text = _LDLApp.LocalDrivingLicenseApplicationID.ToString();
             lblLicenseClass.Text = _LDLApp.LicenseClassInfo.ClassName;
             lblPassedTests.Text = _LDLApp.NumberOfPassedTests().ToString();
 
+        }
+
+        private void llShowLicenceInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            // Implement Here
         }
     }
 }

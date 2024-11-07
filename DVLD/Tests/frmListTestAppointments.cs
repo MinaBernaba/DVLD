@@ -85,7 +85,6 @@ namespace DVLD.Tests
             }
             DefineTestType();
             _RefreshDGV();
-            ctrlLocalDrivingLicenseApplicationInfo.EnablellShowLicenseInfo = false;
             ctrlLocalDrivingLicenseApplicationInfo.LoadLDLA_Info(_LDLA.LocalDrivingLicenseApplicationID);
 
         }
@@ -146,7 +145,6 @@ namespace DVLD.Tests
             frmTakeTest frm = new frmTakeTest((int)dgvTestAppointments.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
             _RefreshDGV();
-            ctrlLocalDrivingLicenseApplicationInfo.EnablellShowLicenseInfo = false;
             ctrlLocalDrivingLicenseApplicationInfo.LoadLDLA_Info(_LDLA.LocalDrivingLicenseApplicationID);
         }
     }

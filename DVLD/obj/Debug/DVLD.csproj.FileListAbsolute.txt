@@ -158,3 +158,14 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.Controls.ctrlS
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.frmScheduleTest.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.Controls.ctrlTakeTest.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Tests.frmTakeTest.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Local_Licenses.frmIssueDriverLicenseFirstTime.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Local_Licenses.Controls.ctrlDriverLicenseInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Local_Licenses.frmShowLicenseInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.International_Licenses.ctrlInternationalLicenseInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.International_Licenses.frmShowInternationalLicenseInfo.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Controls.ctrlDriverLicenses.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.frmShowPersonLicenseHistory.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Drivers.frmListDrivers.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.International_License.frmNewInternationalLicenseApplication.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Local_Licenses.Controls.ctrlDriverLicenseInfoWithFilter.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.International_License.frmListInternationalLicesnseApplications.resources

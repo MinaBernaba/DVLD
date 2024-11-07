@@ -23,6 +23,17 @@ namespace DVLD.Controls
         {
             InitializeComponent();
         }
+        private void _Refresh()
+        {
+            lblAppID.Text = _ApplicationInfo.ApplicationID.ToString();
+            lblAppStatus.Text = _ApplicationInfo.StatusText;
+            lblAppType.Text = _ApplicationInfo.ApplicationTypeInfo.ApplicationTypeTitle;
+            lblAppFees.Text = _ApplicationInfo.PaidFees.ToString();
+            lblApplicantID.Text = _ApplicationInfo.ApplicantPersonID.ToString();
+            lblAppDate.Text = _ApplicationInfo.ApplicationDate.ToString("dd/MM/yyyy");
+            lblStatusDate.Text = _ApplicationInfo.LastStatusDate.ToString("dd/MM/yyyy");
+            lblCreatedBy.Text = _ApplicationInfo.UserInfo.UserName;
+        }
         public void LoadApplicationInfo(int ApplicationID)
         {
             _ApplicationID = ApplicationID;
@@ -32,14 +43,7 @@ namespace DVLD.Controls
                     , MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            lblAppID.Text = _ApplicationInfo.ApplicationID.ToString();
-            lblAppStatus.Text = _ApplicationInfo.StatusText;
-            lblAppType.Text = _ApplicationInfo.ApplicationTypeInfo.ApplicationTypeTitle;
-            lblAppFees.Text = _ApplicationInfo.PaidFees.ToString();
-            lblApplicantID.Text = _ApplicationInfo.ApplicantPersonID.ToString();
-            lblAppDate.Text = _ApplicationInfo.ApplicationDate.ToString("dd/MM/yyyy");
-            lblStatusDate.Text = _ApplicationInfo.LastStatusDate.ToString("dd/MM/yyyy");
-            lblCreatedBy.Text = _ApplicationInfo.UserInfo.UserName;
+            _Refresh();
         }
 
         private void lnlApplicant_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

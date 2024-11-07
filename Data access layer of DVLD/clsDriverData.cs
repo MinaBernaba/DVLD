@@ -14,7 +14,7 @@ namespace DataAccessDVLD
         {
             DataTable dataTable = new DataTable();
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "SELECT * FROM Drivers";
+            string Query = "SELECT * FROM Drivers_View order by FullName";
             SqlCommand cmd = new SqlCommand(Query, conn);
             try
             {

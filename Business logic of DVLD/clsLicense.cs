@@ -43,6 +43,10 @@ namespace BusinessLogicOfDVLD
                 }
             }
         public int CreatedByUserID { get; set; }
+        public bool IsDetained
+        {
+            get { return clsDetainedLicense.IsLicenseDetained(this.LicenseID); }
+        }
         public clsApplication ApplicationInfo { get; set; }
         public clsDriver DriverInfo { get; set; }
         public clsLicenseClass LicenseClassInfo { get; set; }
@@ -148,6 +152,13 @@ namespace BusinessLogicOfDVLD
         {
             return clsLicenseData.DoesApplicantAlreadyHaveALicenseInTheSameLicenseClass(ApplicantPersonID, LicenseClassID);
         }
-
+        public static int GetActiveLicenseIDByPersonID(int PersonID, int LicenseClassID)
+        {
+            return clsLicenseData.GetActiveLicenseIDByPersonID(PersonID, LicenseClassID);
+        }
+        public static DataTable GetDriverLicenses(int DriverID)
+        {
+            return clsLicenseData.GetDriverLicenses(DriverID);
+        }
     }
 }
