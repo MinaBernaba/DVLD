@@ -13,7 +13,7 @@ namespace BusinessLogicOfDVLD
     public class clsLocalDrivingLicenseApplication : clsApplication
     {
         public enum enMode { AddNew, Update};
-        enMode Mode = enMode.AddNew;
+        new enMode Mode = enMode.AddNew;
         public int LocalDrivingLicenseApplicationID {  get; set; }
         public byte LicenseClassID { get; set; }
         public clsLicenseClass LicenseClassInfo { get; set; }
@@ -171,7 +171,6 @@ namespace BusinessLogicOfDVLD
 
             if (Driver == null)
             {
-                //we check if the driver already there for this person.
                 Driver = new clsDriver();
 
                 Driver.PersonID = this.ApplicantPersonID;

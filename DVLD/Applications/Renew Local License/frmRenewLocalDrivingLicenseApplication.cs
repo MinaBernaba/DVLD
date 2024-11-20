@@ -75,19 +75,14 @@ namespace DVLD.Applications.Renew_Local_License
             {
                 return;
             }
-
-
-            clsLicense NewLicense =
+            clsLicense NewLicense = 
                 ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.RenewLicense(txtNotes.Text.Trim(),
                 clsGlobal.CurrentUser.UserID);
-
             if (NewLicense == null)
             {
                 MessageBox.Show("Faild to Renew the License", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 return;
             }
-
             lblApplicationID.Text = NewLicense.ApplicationID.ToString();
             _NewLicenseID = NewLicense.LicenseID;
             lblRenewedLicenseID.Text = _NewLicenseID.ToString();

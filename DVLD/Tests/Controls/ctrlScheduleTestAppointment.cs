@@ -31,7 +31,6 @@ namespace DVLD.Tests.Controls
 
         public clsTestType.enTestType TestType = enTestType.VisionTest;
 
-
         public ctrlScheduleTestAppointment()
         {
             InitializeComponent();
@@ -72,7 +71,7 @@ namespace DVLD.Tests.Controls
          RetakeApplication.ApplicantPersonID = _LDLA.ApplicantPersonID;
          RetakeApplication.ApplicationDate = DateTime.Now;
          RetakeApplication.ApplicationTypeID = (int)clsApplication.enApplicationType.RetakeTest;
-         RetakeApplication.ApplicationStatus = clsApplication.enApplicationStatus.New;
+         RetakeApplication.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
          RetakeApplication.LastStatusDate = DateTime.Now;
          RetakeApplication.PaidFees = clsApplicationType.Find(Convert.ToByte(clsApplication.enApplicationType.RetakeTest)).ApplicationFees;
          RetakeApplication.CreatedByUserID = clsGlobal.CurrentUser.UserID;
@@ -167,11 +166,6 @@ namespace DVLD.Tests.Controls
                         return;
                     }
             }
-            
-            
-            
-
-
         }
     }
 }
