@@ -34,7 +34,7 @@ namespace DVLD.Applications.International_License
             if (dgvInternationalLicenses.Rows.Count > 0)
             {
                 dgvInternationalLicenses.Columns[0].HeaderText = "Int.License ID";
-                dgvInternationalLicenses.Columns[0].Width = 160;
+                dgvInternationalLicenses.Columns[0].Width = 159;
 
                 dgvInternationalLicenses.Columns[1].HeaderText = "Application ID";
                 dgvInternationalLicenses.Columns[1].Width = 150;
@@ -155,7 +155,6 @@ namespace DVLD.Applications.International_License
             _dtInternationalLicenseApplications.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, txtFilterValue.Text.Trim());
             lblInternationalLicensesRecords.Text = _dtInternationalLicenseApplications.Rows.Count.ToString();
         }
-
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);

@@ -10,7 +10,7 @@ using static BusinessLogicOfDVLD.clsApplication;
 
 namespace BusinessLogicOfDVLD
 {
-    public class clsInternationalLicense:clsApplication
+    public class clsInternationalLicense : clsApplication
     {
         public enum enMode { AddNew = 0, Update = 1 };
         public enMode Mode = enMode.AddNew;
@@ -33,9 +33,8 @@ namespace BusinessLogicOfDVLD
             Mode = enMode.AddNew;
         }
         private clsInternationalLicense(int ApplicationID, int ApplicantPersonID,
-            DateTime ApplicationDate,
-             enApplicationStatus ApplicationStatus, DateTime LastStatusDate,
-             decimal PaidFees, int CreatedByUserID,
+            DateTime ApplicationDate, enApplicationStatus ApplicationStatus,
+            DateTime LastStatusDate, decimal PaidFees, int CreatedByUserID,
              int InternationalLicenseID, int DriverID, int IssuedUsingLocalLicenseID,
             DateTime IssueDate, DateTime ExpirationDate, bool IsActive)
         {
@@ -73,8 +72,8 @@ namespace BusinessLogicOfDVLD
         private bool _UpdateInternationalLicense()
         {
             return clsInternationalLicenseData.UpdateInternationalLicense(
-                this.InternationalLicenseID, this.ApplicationID, this.DriverID, this.IssuedUsingLocalLicenseID,
-               this.IssueDate, this.ExpirationDate,
+                this.InternationalLicenseID, this.ApplicationID, this.DriverID,
+                this.IssuedUsingLocalLicenseID, this.IssueDate, this.ExpirationDate,
                this.IsActive, this.CreatedByUserID);
         }
         public static clsInternationalLicense Find(int InternationalLicenseID)
@@ -90,12 +89,11 @@ namespace BusinessLogicOfDVLD
             {
                 clsApplication Application = clsApplication.FindApplication(ApplicationID);
                 return new clsInternationalLicense(Application.ApplicationID,
-                    Application.ApplicantPersonID,
-                                     Application.ApplicationDate,
-                                    (enApplicationStatus)Application.ApplicationStatus, Application.LastStatusDate,
-                                     Application.PaidFees, Application.CreatedByUserID,
-                                     InternationalLicenseID, DriverID, IssuedUsingLocalLicenseID,
-                                         IssueDate, ExpirationDate, IsActive);
+                      Application.ApplicantPersonID, Application.ApplicationDate,
+                      (enApplicationStatus)Application.ApplicationStatus, Application.LastStatusDate,
+                      Application.PaidFees, Application.CreatedByUserID,
+                      InternationalLicenseID, DriverID, IssuedUsingLocalLicenseID,
+                      IssueDate, ExpirationDate, IsActive);
             }
             else return null;
         }
@@ -103,7 +101,7 @@ namespace BusinessLogicOfDVLD
         {
             return clsInternationalLicenseData.GetAllInternationalLicenses();
         }
-        public bool Save()
+        public new bool Save()
         {
             base.Mode = (clsApplication.enMode)Mode;
             if (!base.Save())

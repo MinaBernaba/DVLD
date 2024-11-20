@@ -95,7 +95,7 @@
             this.btnClose.TabIndex = 195;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmShowInternationalLicenseInfo
             // 
@@ -113,6 +113,8 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmShowInternationalLicenseInfo";
             this.Text = "Show International License";
+            this.Load += new System.EventHandler(this.frmShowInternationalLicenseInfo_Load);
+            this.Click += new System.EventHandler(this.btnClose_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbTestTypeImage)).EndInit();
             this.ResumeLayout(false);

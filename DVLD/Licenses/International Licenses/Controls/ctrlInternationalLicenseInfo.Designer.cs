@@ -122,7 +122,7 @@
             this.groupBox1.Size = new System.Drawing.Size(852, 255);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Driver Internationa License Info";
+            this.groupBox1.Text = "Driver International License Info";
             // 
             // pictureBox7
             // 

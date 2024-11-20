@@ -100,7 +100,7 @@ namespace DVLD.Tests
                     , "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (_LDLA.DoesApplicatPassThisTest(Convert.ToByte(TestType)))
+            if (_LDLA.DoesApplicantPassThisTest(Convert.ToByte(TestType)))
             {
                 MessageBox.Show("The applicant already has Passed this test before!, You can only retake failed test!"
                     , "Not Allowed", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

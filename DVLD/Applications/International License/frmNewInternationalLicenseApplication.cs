@@ -32,10 +32,18 @@ namespace DVLD.Applications.International_License
 
             if (SelectedLicenseID == -1)
             {
+                btnIssueLicense.Enabled = false;
+                return;
+            }
+            if (ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.IsActive == false)
+            {
+                btnIssueLicense.Enabled = false;
+                MessageBox.Show("Selected License should be Active! , select another one.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseClassID != 3)
             {
+                btnIssueLicense.Enabled = false;
                 MessageBox.Show("Selected License should be Class 3, select another one.", "Not allowed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
@@ -55,7 +63,7 @@ namespace DVLD.Applications.International_License
         {
             lblApplicationDate.Text = (DateTime.Now).ToShortDateString();
             lblIssueDate.Text = lblApplicationDate.Text;
-            lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();//add one year.
+            lblExpirationDate.Text = DateTime.Now.AddYears(1).ToShortDateString();
             lblFees.Text = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalLicense).ApplicationFees.ToString();
             lblCreatedByUser.Text = clsGlobal.CurrentUser.UserName;
         }
@@ -76,13 +84,12 @@ namespace DVLD.Applications.International_License
             InternationalLicense.LastStatusDate = DateTime.Now;
             InternationalLicense.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.NewInternationalLicense).ApplicationFees;
             InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
-
+            
             InternationalLicense.DriverID = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.DriverID;
             InternationalLicense.IssuedUsingLocalLicenseID = ctrlDriverLicenseInfoWithFilter1.SelectedLicenseInfo.LicenseID;
             InternationalLicense.IssueDate = DateTime.Now;
             InternationalLicense.ExpirationDate = DateTime.Now.AddYears(1);
 
-            InternationalLicense.CreatedByUserID = clsGlobal.CurrentUser.UserID;
 
             if (!InternationalLicense.Save())
             {
@@ -100,7 +107,6 @@ namespace DVLD.Applications.International_License
             ctrlDriverLicenseInfoWithFilter1.FilterEnabled = false;
             llShowLicenseInfo.Enabled = true;
         }
-
         private void llShowDriverLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             frmShowPersonLicenseHistory frm =
@@ -117,5 +123,6 @@ namespace DVLD.Applications.International_License
         {
             ctrlDriverLicenseInfoWithFilter1.txtLicenseIDFocus();
         }
+
     }
 }

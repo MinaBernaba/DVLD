@@ -112,19 +112,18 @@ namespace DVLD.Licenses.Controls
             _LoadInternationalLicenseInfo();
         }
 
-        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
-            frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
-            frm.ShowDialog();
-
-        }
         public void Clear()
         {
             _dtDriverLocalLicensesHistory.Clear();
         }
 
-        private void InternationalLicenseHistorytoolStripMenuItem_Click(object sender, EventArgs e)
+        private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int LicenseID = (int)dgvLocalLicensesHistory.CurrentRow.Cells[0].Value;
+            frmShowLicenseInfo frm = new frmShowLicenseInfo(LicenseID);
+            frm.ShowDialog();
+        }
+        private void showInternationalLicenseInfoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             int InternationalLicenseID = (int)dgvInternationalLicensesHistory.CurrentRow.Cells[0].Value;
             frmShowInternationalLicenseInfo frm = new frmShowInternationalLicenseInfo(InternationalLicenseID);

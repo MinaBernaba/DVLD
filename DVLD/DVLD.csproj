@@ -100,17 +100,23 @@
     <Compile Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.Designer.cs">
       <DependentUpon>frmLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Applications\Renew Local License\frmRenewLocalDrivingLicenseApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Applications\Renew Local License\frmRenewLocalDrivingLicenseApplication.Designer.cs">
+      <DependentUpon>frmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Drivers\frmListDrivers.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Drivers\frmListDrivers.Designer.cs">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </Compile>
-    <Compile Include="Licenses\Controls\ctrlDriverLicense.cs">
+    <Compile Include="Licenses\Controls\ctrlDriverLicenses.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Licenses\Controls\ctrlDriverLicense.Designer.cs">
-      <DependentUpon>ctrlDriverLicense.cs</DependentUpon>
+    <Compile Include="Licenses\Controls\ctrlDriverLicenses.Designer.cs">
+      <DependentUpon>ctrlDriverLicenses.cs</DependentUpon>
     </Compile>
     <Compile Include="Licenses\frmShowPersonLicenseHistory.cs">
       <SubType>Form</SubType>
@@ -306,11 +312,14 @@
     <EmbeddedResource Include="Applications\Local Driving License\frmLocalDrivingLicenseApplicationInfo.resx">
       <DependentUpon>frmLocalDrivingLicenseApplicationInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Applications\Renew Local License\frmRenewLocalDrivingLicenseApplication.resx">
+      <DependentUpon>frmRenewLocalDrivingLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Drivers\frmListDrivers.resx">
       <DependentUpon>frmListDrivers.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Licenses\Controls\ctrlDriverLicense.resx">
-      <DependentUpon>ctrlDriverLicense.cs</DependentUpon>
+    <EmbeddedResource Include="Licenses\Controls\ctrlDriverLicenses.resx">
+      <DependentUpon>ctrlDriverLicenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Licenses\frmShowPersonLicenseHistory.resx">
       <DependentUpon>frmShowPersonLicenseHistory.cs</DependentUpon>
@@ -689,7 +698,9 @@
   <ItemGroup>
     <None Include="Resources\PersonLicenseHistory 512.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\Renew Driving License 321.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Driver Main.png" />
   </ItemGroup>

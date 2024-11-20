@@ -27,9 +27,6 @@ namespace DVLD.Licenses.International_Licenses
         {
             ctrlInternationalLicenseInfo1.LoadInfo(_InternationalLicenseID);
         }
-        private void btnClose_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        
     }
 }

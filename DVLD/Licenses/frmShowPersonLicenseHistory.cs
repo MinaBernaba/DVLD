@@ -37,7 +37,6 @@ namespace DVLD.Licenses
                 ctrlPersonCardWithFilter1.FilterFocus();
             }
         }
-
         private void ctrlPersonCardWithFilter1_OnPersonSelected(int obj)
         {
             _PersonID = obj;

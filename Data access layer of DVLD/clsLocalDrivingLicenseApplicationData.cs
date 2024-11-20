@@ -247,7 +247,7 @@ namespace DataAccessDVLD
             finally { conn.Close(); }
             return TrialsCount;
         }
-        public static bool DoesApplicatPassThisTest(int LocalDrivingLicenseApplicationID, byte TestTypeID)
+        public static bool DoesApplicantPassThisTest(int LocalDrivingLicenseApplicationID, byte TestTypeID)
         {
             bool PassTheTest = false;
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);

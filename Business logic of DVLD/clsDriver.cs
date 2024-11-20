@@ -13,7 +13,7 @@ namespace BusinessLogicOfDVLD
 {
     public class clsDriver
     {
-        enum enMode { AddNew , Update}
+        enum enMode { AddNew , Update }
         enMode Mode = enMode.AddNew;
         public int DriverID { get; set; }
         public int PersonID { get; set; }

@@ -81,6 +81,7 @@
             this.ctrlPersonCardWithFilter1.ShowAddNew = true;
             this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(848, 406);
             this.ctrlPersonCardWithFilter1.TabIndex = 133;
+            this.ctrlPersonCardWithFilter1.OnPersonSelected += new System.Action<int>(this.ctrlPersonCardWithFilter1_OnPersonSelected);
             // 
             // btnClose
             // 
@@ -95,6 +96,7 @@
             this.btnClose.TabIndex = 135;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmShowPersonLicenseHistory
             // 

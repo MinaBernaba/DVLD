@@ -14,7 +14,9 @@ namespace DataAccessDVLD
         {
             DataTable dataTable = new DataTable();
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "SELECT * FROM InternationalLicenses";
+            string Query = "SELECT InternationalLicenseID, ApplicationID,DriverID, IssuedUsingLocalLicenseID ," +
+                " IssueDate, ExpirationDate, IsActive " +
+                "FROM InternationalLicenses order by IsActive, ExpirationDate desc";
             SqlCommand cmd = new SqlCommand(Query, conn);
             try
             {

@@ -44,15 +44,10 @@ namespace DVLD.Licenses.Local_Licenses.Controls
 
         public void LoadLicenseInfo(int LicenseID)
         {
-
-
-            txtLicenseID.Text = LicenseID.ToString();
             ctrlDriverLicenseInfo1.LoadInfo(LicenseID);
             _LicenseID = ctrlDriverLicenseInfo1.LicenseID;
             if (OnLicenseSelected != null && FilterEnabled)
                 OnLicenseSelected(_LicenseID);
-
-
         }
 
         private void txtLicenseID_KeyPress(object sender, KeyPressEventArgs e)

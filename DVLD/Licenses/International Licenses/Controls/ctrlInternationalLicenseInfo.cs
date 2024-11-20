@@ -17,16 +17,14 @@ namespace DVLD.Licenses.International_Licenses
     {
         private int _InternationalLicenseID;
         private clsInternationalLicense _InternationalLicense;
-        public ctrlInternationalLicenseInfo()
-        {
-            InitializeComponent();
-        }
-
         public int InternationalLicenseID
         {
             get { return _InternationalLicenseID; }
         }
-
+        public ctrlInternationalLicenseInfo()
+        {
+            InitializeComponent();
+        }
         private void _LoadPersonImage()
         {
             if (_InternationalLicense.DriverInfo.PersonInfo.Gender == 0)

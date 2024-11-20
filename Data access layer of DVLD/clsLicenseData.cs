@@ -208,14 +208,11 @@ namespace DataAccessDVLD
 
             SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
 
-            string query = @"SELECT        Licenses.LicenseID
-                            FROM Licenses INNER JOIN
-                                                     Drivers ON Licenses.DriverID = Drivers.DriverID
-                            WHERE  
-                             
-                             Licenses.LicenseClass = @LicenseClass 
-                              AND Drivers.PersonID = @PersonID
-                              And IsActive=1;";
+            string query = @"SELECT  Licenses.LicenseID
+                            FROM Licenses INNER JOIN Drivers ON Licenses.DriverID = Drivers.DriverID
+                            WHERE Licenses.LicenseClass = @LicenseClass 
+                            AND Drivers.PersonID = @PersonID
+                            And IsActive=1;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -266,6 +263,25 @@ namespace DataAccessDVLD
             catch (Exception ex) { }
             finally   { connection.Close(); }
             return dt;
+        }
+        public static bool DeactivateLicense(int LicenseID)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
+
+            string query = @"UPDATE Licenses  SET  IsActive = 0  WHERE LicenseID=@LicenseID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex) { return false; }
+            finally { connection.Close(); }
+            return (rowsAffected > 0);
         }
     } 
 }

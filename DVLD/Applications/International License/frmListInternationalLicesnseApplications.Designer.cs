@@ -37,19 +37,19 @@
             this.lblInternationalLicensesRecords = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dgvInternationalLicenses = new System.Windows.Forms.DataGridView();
+            this.cmsApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.PesonDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnNewApplication = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pbPersonImage = new System.Windows.Forms.PictureBox();
-            this.cmsApplications = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.PesonDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showPersonLicenseHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).BeginInit();
+            this.cmsApplications.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
-            this.cmsApplications.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbIsReleased
@@ -108,21 +108,22 @@
             // lblInternationalLicensesRecords
             // 
             this.lblInternationalLicensesRecords.AutoSize = true;
-            this.lblInternationalLicensesRecords.Location = new System.Drawing.Point(107, 673);
+            this.lblInternationalLicensesRecords.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInternationalLicensesRecords.Location = new System.Drawing.Point(158, 673);
             this.lblInternationalLicensesRecords.Name = "lblInternationalLicensesRecords";
-            this.lblInternationalLicensesRecords.Size = new System.Drawing.Size(34, 25);
+            this.lblInternationalLicensesRecords.Size = new System.Drawing.Size(39, 29);
             this.lblInternationalLicensesRecords.TabIndex = 169;
             this.lblInternationalLicensesRecords.Text = "??";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(13, 673);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 25);
+            this.label5.Size = new System.Drawing.Size(153, 29);
             this.label5.TabIndex = 168;
-            this.label5.Text = "# Records:";
+            this.label5.Text = "# Records : ";
             // 
             // dgvInternationalLicenses
             // 
@@ -151,69 +152,6 @@
             this.dgvInternationalLicenses.Size = new System.Drawing.Size(1102, 340);
             this.dgvInternationalLicenses.TabIndex = 167;
             this.dgvInternationalLicenses.TabStop = false;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblTitle.Location = new System.Drawing.Point(12, 201);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(996, 69);
-            this.lblTitle.TabIndex = 165;
-            this.lblTitle.Text = "International License Applications";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnNewApplication
-            // 
-            this.btnNewApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewApplication.Image = global::DVLD.Properties.Resources.New_Application_64;
-            this.btnNewApplication.Location = new System.Drawing.Point(1021, 241);
-            this.btnNewApplication.Name = "btnNewApplication";
-            this.btnNewApplication.Size = new System.Drawing.Size(88, 75);
-            this.btnNewApplication.TabIndex = 166;
-            this.btnNewApplication.UseVisualStyleBackColor = true;
-            this.btnNewApplication.Click += new System.EventHandler(this.btnNewApplication_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.AutoEllipsis = true;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
-            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(980, 672);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(135, 36);
-            this.btnClose.TabIndex = 164;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.International_32;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(525, 69);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(78, 58);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 175;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pbPersonImage
-            // 
-            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbPersonImage.Image = global::DVLD.Properties.Resources.Applications;
-            this.pbPersonImage.InitialImage = null;
-            this.pbPersonImage.Location = new System.Drawing.Point(344, 14);
-            this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pbPersonImage.Name = "pbPersonImage";
-            this.pbPersonImage.Size = new System.Drawing.Size(220, 189);
-            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPersonImage.TabIndex = 174;
-            this.pbPersonImage.TabStop = false;
             // 
             // cmsApplications
             // 
@@ -252,6 +190,69 @@
             this.showPersonLicenseHistoryToolStripMenuItem.Text = "Show Person License History";
             this.showPersonLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonLicenseHistoryToolStripMenuItem_Click);
             // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lblTitle.Location = new System.Drawing.Point(12, 201);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(1097, 69);
+            this.lblTitle.TabIndex = 165;
+            this.lblTitle.Text = "International License Applications";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnNewApplication
+            // 
+            this.btnNewApplication.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewApplication.Image = global::DVLD.Properties.Resources.New_Application_64;
+            this.btnNewApplication.Location = new System.Drawing.Point(1021, 241);
+            this.btnNewApplication.Name = "btnNewApplication";
+            this.btnNewApplication.Size = new System.Drawing.Size(88, 75);
+            this.btnNewApplication.TabIndex = 166;
+            this.btnNewApplication.UseVisualStyleBackColor = true;
+            this.btnNewApplication.Click += new System.EventHandler(this.btnNewApplication_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.AutoEllipsis = true;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = global::DVLD.Properties.Resources.Close_32;
+            this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnClose.Location = new System.Drawing.Point(980, 672);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(135, 36);
+            this.btnClose.TabIndex = 164;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.International_32;
+            this.pictureBox1.InitialImage = null;
+            this.pictureBox1.Location = new System.Drawing.Point(631, 52);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(78, 58);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 175;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pbPersonImage
+            // 
+            this.pbPersonImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbPersonImage.Image = global::DVLD.Properties.Resources.Applications;
+            this.pbPersonImage.InitialImage = null;
+            this.pbPersonImage.Location = new System.Drawing.Point(450, 14);
+            this.pbPersonImage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pbPersonImage.Name = "pbPersonImage";
+            this.pbPersonImage.Size = new System.Drawing.Size(220, 189);
+            this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPersonImage.TabIndex = 174;
+            this.pbPersonImage.TabStop = false;
+            // 
             // frmListInternationalLicesnseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -278,9 +279,9 @@
             this.Text = "List International Licesnse Applications";
             this.Load += new System.EventHandler(this.frmListInternationalLicesnseApplications_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInternationalLicenses)).EndInit();
+            this.cmsApplications.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
-            this.cmsApplications.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

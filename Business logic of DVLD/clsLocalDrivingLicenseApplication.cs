@@ -101,7 +101,7 @@ namespace BusinessLogicOfDVLD
             return clsLocalDrivingLicenseApplicationData.Update(this.LocalDrivingLicenseApplicationID,
                 this.ApplicationID, this.LicenseClassID);
         }
-        public bool Save()
+        public new bool Save()
         {
             base.Mode = (clsApplication.enMode)Mode;
             if(!base.Save()) return false;
@@ -155,9 +155,9 @@ namespace BusinessLogicOfDVLD
         {
             return clsLocalDrivingLicenseApplicationData.TrialsCount(this.LocalDrivingLicenseApplicationID, TestTypeID);
         }
-        public bool DoesApplicatPassThisTest(byte TestTypeID)
+        public bool DoesApplicantPassThisTest(byte TestTypeID)
         {
-            return clsLocalDrivingLicenseApplicationData.DoesApplicatPassThisTest(this.LocalDrivingLicenseApplicationID, TestTypeID);
+            return clsLocalDrivingLicenseApplicationData.DoesApplicantPassThisTest(this.LocalDrivingLicenseApplicationID, TestTypeID);
         }
         public bool DoesLicenseIssuedForThisApplication()
         {
@@ -202,9 +202,7 @@ namespace BusinessLogicOfDVLD
             License.CreatedByUserID = UserID;
             if (License.Save())
             {
-                //now we should set the application status to complete.
                 this.SetComplete();
-
                 return License.LicenseID;
             }
 
