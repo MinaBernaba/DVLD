@@ -12,19 +12,19 @@ namespace BusinessLogicOfDVLD
     {
         public enum enMode { AddNew, Update }
         public enMode Mode = enMode.AddNew;
-        int DetainID { get; set; }
-        int LicenseID { get; set; }
-        DateTime DetainDate { get; set; }
-        decimal FineFees { get; set; }
-        int CreatedByUserID { get; set; }
-        bool IsReleased { get; set; }
-        DateTime ReleaseDate { get; set; }
-        int ReleasedByUserID { get; set; }
-        int ReleaseApplicationID    { get; set; }
-        clsLicense LicenseInfo { get; set; }
-        clsUser UserCreateInfo { get; set; }
-        clsUser UserReleaseInfo { get; set; }
-        clsApplication ReleaseApplicationInfo { get; set; }
+        public int DetainID { get; set; }
+        public int LicenseID { get; set; }
+        public DateTime DetainDate { get; set; }
+        public decimal FineFees { get; set; }
+        public int CreatedByUserID { get; set; }
+        public bool IsReleased { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public int ReleasedByUserID { get; set; }
+        public int ReleaseApplicationID    { get; set; }
+        public clsLicense LicenseInfo { get; set; }
+        public clsUser UserCreateInfo { get; set; }
+        public clsUser UserReleaseInfo { get; set; }
+        public clsApplication ReleaseApplicationInfo { get; set; }
 
         public clsDetainedLicense()
         {
@@ -51,7 +51,6 @@ namespace BusinessLogicOfDVLD
             this.ReleaseDate = ReleaseDate;
             this.ReleasedByUserID = ReleasedByUserID;
             this.ReleaseApplicationID = ReleaseApplicationID;
-            this.LicenseInfo = clsLicense.Find(LicenseID);
             this.UserCreateInfo = clsUser.FindUser(CreatedByUserID);
             this.UserReleaseInfo = clsUser.FindUser(CreatedByUserID);
             this.ReleaseApplicationInfo = clsApplication.FindApplication(ReleaseApplicationID);
@@ -121,6 +120,11 @@ namespace BusinessLogicOfDVLD
         public static bool IsLicenseDetained(int LicenseID)
         {
             return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
+        }
+        public bool ReleaseDetainedLicense(int ReleasedByUserID, int ReleaseApplicationID)
+        {
+            return clsDetainedLicenseData.ReleaseDetainedLicense(this.DetainID,
+                   ReleasedByUserID, ReleaseApplicationID);
         }
 
     }

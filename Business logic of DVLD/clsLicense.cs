@@ -50,6 +50,7 @@ namespace BusinessLogicOfDVLD
         public clsApplication ApplicationInfo { get; set; }
         public clsDriver DriverInfo { get; set; }
         public clsLicenseClass LicenseClassInfo { get; set; }
+        public clsDetainedLicense DetainedInfo { set; get; }
         public clsUser UserInfo { get; set; }
         public clsLicense()
         {
@@ -85,6 +86,7 @@ namespace BusinessLogicOfDVLD
             this.DriverInfo = clsDriver.FindByDriverID(DriverID);
             this.LicenseClassInfo = clsLicenseClass.Find(LicenseClassID);
             this.UserInfo = clsUser.FindUser(CreatedByUserID);
+            this.DetainedInfo = clsDetainedLicense.FindByLicenseID(this.LicenseID);
             this.Mode = enMode.Update;
         }
         public static clsLicense Find(int LicenseID)
@@ -247,6 +249,40 @@ namespace BusinessLogicOfDVLD
             }
             DeactivateCurrentLicense();
             return NewLicense;
+        }
+        public int Detain(float FineFees, int CreatedByUserID)
+        {
+            clsDetainedLicense detainedLicense = new clsDetainedLicense();
+            detainedLicense.LicenseID = this.LicenseID;
+            detainedLicense.DetainDate = DateTime.Now;
+            detainedLicense.FineFees = Convert.ToDecimal(FineFees);
+            detainedLicense.CreatedByUserID = CreatedByUserID;
+            if (!detainedLicense.Save())
+            {
+                return -1;
+            }
+            return detainedLicense.DetainID;
+        }
+        public bool ReleaseDetainedLicense(int ReleasedByUserID, ref int ApplicationID)
+        {
+            clsApplication Application = new clsApplication();
+
+            Application.ApplicantPersonID = this.DriverInfo.PersonID;
+            Application.ApplicationDate = DateTime.Now;
+            Application.ApplicationTypeID = (int)clsApplication.enApplicationType.ReleaseDetainedDrivingLicsense;
+            Application.ApplicationStatus = clsApplication.enApplicationStatus.Completed;
+            Application.LastStatusDate = DateTime.Now;
+            Application.PaidFees = clsApplicationType.Find((int)clsApplication.enApplicationType.ReleaseDetainedDrivingLicsense).ApplicationFees;
+            Application.CreatedByUserID = ReleasedByUserID;
+
+            if (!Application.Save())
+            {
+                ApplicationID = -1;
+                return false;
+            }
+            ApplicationID = Application.ApplicationID;
+            return this.DetainedInfo.ReleaseDetainedLicense(ReleasedByUserID, Application.ApplicationID);
+
         }
     }
 }

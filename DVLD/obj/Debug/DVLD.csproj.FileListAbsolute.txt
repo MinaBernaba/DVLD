@@ -171,3 +171,6 @@ C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Local_Licen
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.International_License.frmListInternationalLicesnseApplications.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Renew_Local_License.frmRenewLocalDrivingLicenseApplication.resources
 C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Replace_Lost_Or_Damaged_License.frmReplaceLostOrDamagedLicenseApplication.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.Release_Detained_License.frmListDetainedLicenses.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Applications.ReleaseDetainedLicense.frmReleaseDetainedLicenseApplication.resources
+C:\Users\AIO\source\repos\DVLD Solution\DVLD\obj\Debug\DVLD.Licenses.Detain_License.frmDetainLicenseApplication.resources

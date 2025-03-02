@@ -199,7 +199,7 @@ namespace DVLD.People
 
         private void lnkSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            OpenFilePics.InitialDirectory = "C:\\Users\\AIO\\source\\Images";
+            OpenFilePics.InitialDirectory = "C:";
             OpenFilePics.Title = "Choose a pic";
             OpenFilePics.Filter = "All Images (*.*)|*.*|Images (.png)|*.png|Images (.jpg)|*.jpg|Images (.ico)|*.ico";
             OpenFilePics.FilterIndex = 1;

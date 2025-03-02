@@ -14,7 +14,7 @@ namespace DataAccessDVLD
         {
             DataTable dataTable = new DataTable();
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
-            string Query = "SELECT * FROM [DetainedLicenses]";
+            string Query = "select * from detainedLicenses_View order by IsReleased ,DetainID;";
             SqlCommand cmd = new SqlCommand(Query, conn);
             try
             {
@@ -32,8 +32,7 @@ namespace DataAccessDVLD
             SqlConnection conn = new SqlConnection(clsSettingsData.Connection);
             string Query = "INSERT INTO [dbo].[DetainedLicenses]" +
                 " ([LicenseID] ,[DetainDate] ,[FineFees]" +
-                " ,[CreatedByUserID] ,[IsReleased] ,[ReleaseDate]" +
-                " ,[ReleasedByUserID] ,[ReleaseApplicationID])" +
+                " ,[CreatedByUserID] ,[IsReleased])" +
                 "  VALUES (@LicenseID ,@DetainDate ,@FineFees ,@CreatedByUserID ,@IsReleased); " +
                 " SELECT SCOPE_IDENTITY();";
             SqlCommand cmd = new SqlCommand(Query, conn);
@@ -230,6 +229,31 @@ namespace DataAccessDVLD
             return IsDetained;
             ;
 
+        }
+        public static bool ReleaseDetainedLicense(int DetainID,
+                 int ReleasedByUserID, int ReleaseApplicationID)
+        {
+            int rowsAffected = 0;
+            SqlConnection connection = new SqlConnection(clsSettingsData.Connection);
+            string query = @"UPDATE dbo.DetainedLicenses
+                              SET IsReleased = 1, 
+                              ReleaseDate = @ReleaseDate, 
+                              ReleaseApplicationID = @ReleaseApplicationID   
+                              WHERE DetainID=@DetainID;";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.AddWithValue("@DetainID", DetainID);
+            command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID);
+            command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID);
+            command.Parameters.AddWithValue("@ReleaseDate", DateTime.Now);
+            try
+            {
+                connection.Open();
+                rowsAffected = command.ExecuteNonQuery();
+            }
+            catch (Exception ex) { return false; }
+            finally { connection.Close(); }
+            return (rowsAffected > 0);
         }
     }
 }

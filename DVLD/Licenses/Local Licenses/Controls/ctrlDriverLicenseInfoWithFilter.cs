@@ -52,24 +52,16 @@ namespace DVLD.Licenses.Local_Licenses.Controls
 
         private void txtLicenseID_KeyPress(object sender, KeyPressEventArgs e)
         {
-
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-
-
-            // Check if the pressed key is Enter (character code 13)
             if (e.KeyChar == (char)13)
             {
-
                 btnFind.PerformClick();
             }
-
         }
-
         private void btnFind_Click(object sender, EventArgs e)
         {
             if (!this.ValidateChildren())
             {
-                //Here we dont continue becuase the form is not valid
                 MessageBox.Show("Some fileds are not valide!, put the mouse over the red icon(s) to see the erro", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLicenseID.Focus();
                 return;
